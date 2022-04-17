@@ -5,16 +5,13 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import SignUp from "./containers/Signup";
 import { Homepage } from "./containers/Home";
 import Login from "./containers/Login";
+import Header from "./layouts/Header";
 
 function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/login">Login</Link>
-        </nav>
+        <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/signup" element={<SignUp />} />
