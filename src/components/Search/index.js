@@ -1,27 +1,31 @@
-import { Button, Checkbox, FormControlLabel, TextField } from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from "react";
 
 export const SearchField = () => {
+  const [value, setValue] = useState("");
+  // const valueRef = useRef(""); //creating a refernce for TextField Component
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    setValue("");
+  };
+  const onChangeHandler = (e) => {
+    console.log(e.target.value);
+    setValue(e.target.value);
+  };
   return (
-    <Box component="form" noValidate className='mt-2 flex'>
-    <TextField
-      margin="normal"
-      required
-      fullWidth
-      id="search"
-      name="search"
-      autoComplete="search"
-      autoFocus
-    />
-    <Button
-      type="submit"
-      fullWidth
-      variant="contained"
-      sx={{ mt: 3, mb: 2 }}
+    <form
+      onSubmit={onSubmitHandler}
+      noValidate
+      className="w-1/3"
     >
-      Search
-    </Button>
-    </Box>
-  )
-}
+      <input
+        className="w-full py-2 px-2 border rounded-lg border-gray-400"
+        id="search"
+        name="search"
+        value={value}
+        onChange={onChangeHandler}
+      />
+      {/* <button type="submit" className="hidden"></button> */}
+    </form>
+  );
+};

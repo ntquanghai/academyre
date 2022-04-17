@@ -1,10 +1,6 @@
-import React from 'react'
-import { SearchField } from '../../components/Search'
+import React from "react";
+import { SearchField } from "../../components/Search";
 
 export const Homepage = () => {
-  return (
-    <div>
-      <SearchField />
-    </div>
-  )
-}
+  return <div>Home</div>;
+};

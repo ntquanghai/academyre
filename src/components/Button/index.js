@@ -2,9 +2,27 @@ import { Button } from "@mui/material";
 import React from "react";
 
 const ButtonPrimary = (props) => {
+  const {
+    variant,
+    className,
+    buttonType,
+    fullWidth,
+    children,
+    onClick,
+    ...rest
+  } = props;
   return (
     <>
-      <Button variant="outlined">Primary</Button>
+      {/* variant: 'text' | 'outlined' | 'contained' */}
+      {/* type fullWidth sx  */}
+      <Button
+        className={className}
+        variant={variant}
+        type={buttonType}
+        {...rest}
+      >
+        {children}
+      </Button>
     </>
   );
 };
@@ -20,9 +38,9 @@ const ButtonDisabled = (props) => {
 const ButtonSecondary = (props) => {
   return (
     <>
-      <Button variant="outlined">Primary</Button>
+      <Button color="secondary">Secondary</Button>
     </>
   );
 };
 
-export {ButtonPrimary, ButtonDisabled, ButtonSecondary}
+export { ButtonPrimary, ButtonDisabled, ButtonSecondary };
