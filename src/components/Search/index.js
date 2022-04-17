@@ -4,30 +4,15 @@ import React from 'react'
 
 export const SearchField = () => {
   return (
-    <Box component="form" noValidate sx={{ mt: 1 }}>
+    <Box component="form" noValidate className='mt-2 flex'>
     <TextField
       margin="normal"
       required
       fullWidth
-      id="email"
-      label="Email Address"
-      name="email"
-      autoComplete="email"
+      id="search"
+      name="search"
+      autoComplete="search"
       autoFocus
-    />
-    <TextField
-      margin="normal"
-      required
-      fullWidth
-      name="password"
-      label="Password"
-      type="password"
-      id="password"
-      autoComplete="current-password"
-    />
-    <FormControlLabel
-      control={<Checkbox value="remember" color="primary" />}
-      label="Remember me"
     />
     <Button
       type="submit"
@@ -35,7 +20,7 @@ export const SearchField = () => {
       variant="contained"
       sx={{ mt: 3, mb: 2 }}
     >
-      Sign In
+      Search
     </Button>
     </Box>
   )
