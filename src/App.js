@@ -11,7 +11,8 @@ function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <Header />
+      <Header />
+       {<SignUp /> || <Login /> ? <Fragment /> : <Header />} 
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/signup" element={<SignUp />} />

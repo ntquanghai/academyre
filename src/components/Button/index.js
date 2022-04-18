@@ -26,21 +26,5 @@ const ButtonPrimary = (props) => {
     </>
   );
 };
-const ButtonDisabled = (props) => {
-  return (
-    <>
-      <Button variant="outlined" disabled>
-        Disabled
-      </Button>
-    </>
-  );
-};
-const ButtonSecondary = (props) => {
-  return (
-    <>
-      <Button color="secondary">Secondary</Button>
-    </>
-  );
-};
 
-export { ButtonPrimary, ButtonDisabled, ButtonSecondary };
+export default ButtonPrimary ;

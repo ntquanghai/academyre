@@ -1,29 +1,11 @@
 import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { useState } from "react";
+
 import { SearchField } from "../../components/Search";
 import { Link } from "react-router-dom";
-
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
+import ButtonPrimary from "../../components/Button";
+import { Dropdown } from "../../components/Dropdown";
 
 export default function Header() {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <Box className="w-full flex items-center justify-between mt-2">
       <Link to="/">
@@ -35,13 +17,16 @@ export default function Header() {
           alt=""
         />
       </Link>
-
+      <Dropdown />
       <SearchField />
-      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab label="Homepage" href="/" />
-        <LinkTab label="Login" href="/login" />
-        <LinkTab label="Logout" href="/signup" />
-      </Tabs>
+      <div className="flex space-x-4 mx-8">
+        <Link to="/login">
+          <ButtonPrimary variant="outlined">Login</ButtonPrimary>
+        </Link>
+        <Link to="/signup">
+          <ButtonPrimary variant="outlined" className="border-black text-black">Signup</ButtonPrimary>
+        </Link>
+      </div>
     </Box>
   );
 }
