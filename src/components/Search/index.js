@@ -5,27 +5,31 @@ export const SearchField = () => {
   // const valueRef = useRef(""); //creating a refernce for TextField Component
 
   const onSubmitHandler = (e) => {
+    console.log("submit");
     e.preventDefault();
     setValue("");
   };
   const onChangeHandler = (e) => {
-    console.log(e.target.value);
     setValue(e.target.value);
   };
   return (
-    <form
-      onSubmit={onSubmitHandler}
-      noValidate
-      className="w-1/3"
-    >
-      <input
-        className="w-full py-2 px-2 border rounded-lg border-gray-400"
-        id="search"
-        name="search"
-        value={value}
-        onChange={onChangeHandler}
-      />
-      {/* <button type="submit" className="hidden"></button> */}
-    </form>
+    <div className="w-1/2 ">
+      <form
+        onSubmit={onSubmitHandler}
+        className="border flex-row-reverse rounded-full flex border-black"
+      >
+        <input
+          className="w-full !outline-none py-4 px-4 rounded-full"
+          id="search"
+          name="search"
+          value={value}
+          onChange={onChangeHandler}
+          placeholder="Search for anything"
+        />
+        <button type="submit" className="pl-4 hover:cursor-not-allowed">
+          <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
+        </button>
+      </form>
+    </div>
   );
 };
