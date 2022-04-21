@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SearchField = () => {
   const [value, setValue] = useState("");
   // const valueRef = useRef(""); //creating a refernce for TextField Component
-
+  const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     console.log("submit");
     e.preventDefault();
     setValue("");
+    navigate("/search")
   };
   const onChangeHandler = (e) => {
     setValue(e.target.value);

@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Rating } from '@mui/material';
 
 export default function ProductCard() {
   return (
@@ -26,6 +26,7 @@ export default function ProductCard() {
           <Typography variant="body2" color="text.secondary">
             Author
           </Typography>
+          <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
         </CardContent>
       </CardActionArea>
     </Card>
