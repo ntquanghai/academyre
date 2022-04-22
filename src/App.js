@@ -12,7 +12,6 @@ function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <Header />
         {<SignUp /> || <Login /> ? <Fragment /> : <Header />}
         <Routes>
           <Route path="/" element={<Homepage />} />
