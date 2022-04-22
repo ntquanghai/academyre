@@ -1,9 +1,6 @@
-import React, {useState, setState, useEffect, state} from "react";
-import Carousel from "react-material-ui-carousel";
-import { SearchField } from "../../components/Search";
+import React, {useState, useEffect} from "react";
 import Header from "../../layouts/Header";
 import { HpCarousel } from "../../components/HomepageCarousel/hpCarousel";
-import { HpItem } from "../../components/HomepageItem/hpItem";
 
 export const Homepage = () => {
   const [hpData, sethpData] = useState([])
