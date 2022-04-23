@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Header from "../../layouts/Header";
-import { HpCarousel } from "../../components/HomepageCarousel/hpCarousel";
+import { HpCarousel } from "../../components/HomepageCarousel";
 
 export const Homepage = () => {
   const [hpData, sethpData] = useState([])
@@ -66,7 +66,6 @@ export const Homepage = () => {
     return <div></div>
   }
   else {
-    console.log(hpData)
     return (
       <div>
         <Header/>
