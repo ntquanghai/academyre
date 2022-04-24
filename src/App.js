@@ -12,7 +12,7 @@ function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        {<SignUp /> || <Login /> ? <Fragment /> : <Header />}
+      <Header/>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/signup" element={<SignUp />} />

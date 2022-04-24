@@ -68,7 +68,6 @@ export const Homepage = () => {
   else {
     return (
       <div>
-        <Header/>
         <div className = "">
           <div className = "flex w-full bg-slate-100 shadow-inner px-60">
             <div className = "py-10  font-semibold  w-1/2 flex" style = {{height: "300px", fontSize: "28px", fontFamily: "'Open Sans', sans-serif"}}>
@@ -109,7 +108,7 @@ export const Homepage = () => {
               </div>
             </div>
           </div>
-          <div className = "bg-white">
+          <div>
             <HpCarousel 
               data = {hpData}
             ></HpCarousel>

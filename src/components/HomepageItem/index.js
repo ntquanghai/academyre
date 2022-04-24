@@ -19,7 +19,7 @@ export const HpItem = (props) => {
   const { img, courseName, desc, author, key } = props;
   return (
     <div
-      className="border m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative"
+      className="m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative"
       style={{ width: "320px", height: "300px" }}
       key={key}
     >
