@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import Header from "../../layouts/Header";
 import { HpCarousel } from "../../components/HomepageCarousel";
 
@@ -67,8 +67,7 @@ export const Homepage = () => {
   }
   else {
     return (
-      <div>
-        <div className = "">
+      <Fragment>
           <div className = "flex w-full bg-slate-100 shadow-inner px-60">
             <div className = "py-10  font-semibold  w-1/2 flex" style = {{height: "300px", fontSize: "28px", fontFamily: "'Open Sans', sans-serif"}}>
               <div className = "m-auto">
@@ -108,13 +107,13 @@ export const Homepage = () => {
               </div>
             </div>
           </div>
-          <div>
+          <Fragment>
             <HpCarousel 
               data = {hpData}
             ></HpCarousel>
-          </div>
-        </div>
-      </div>
+          </Fragment>
+          <div>Hiiiiiii</div>
+      </Fragment>
     )
   };
   }
