@@ -6,7 +6,6 @@ const ButtonPrimary = (props) => {
     variant,
     className,
     buttonType,
-    fullWidth,
     children,
     onClick,
     ...rest
