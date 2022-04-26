@@ -2,7 +2,7 @@ import React from "react";
 import ButtonPrimary from "../Button";
 export const CourseSummary = (props) => {
   const { children, className } = props;
-  const classes = className + " w-1/4 h-fit drop-shadow-lg";
+  const classes = className + " w-1/5 h-fit drop-shadow-lg";
   return (
     <div className={classes}>
       <img

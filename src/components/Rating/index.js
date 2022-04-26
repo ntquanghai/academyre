@@ -6,8 +6,10 @@ export default function ReadOnlyRating(props) {
   const { rating } = props;
   const [value, setValue] = React.useState(rating);
   return (
-    <div className="flex flex-col">
-      <Rating name="half-rating-read" 
+    <div className="flex space-x-4 items-center">
+    <div className="text-yellow-300 font-semibold text-xl">{value}/5</div>
+      <Rating
+        name="half-rating-read"
         readOnly
         value={value}
         className="text-yellow-300"
@@ -15,6 +17,7 @@ export default function ReadOnlyRating(props) {
           <StarBorder fontSize="inherit" className="text-yellow-300" />
         }
       />
+      <p>21,845 students</p>
     </div>
   );
 }
