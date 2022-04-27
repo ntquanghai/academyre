@@ -4,10 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Rating } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard() {
+  const navigate = useNavigate();
+  const onClickHandler = (e) => {
+    e.preventDefault();
+    navigate("/courseDetail");
+  }
   return (
-    <Card className='w-full'>
+    <Card className='w-full' onClick={onClickHandler}>
       <CardActionArea className='flex'>
         <CardMedia
           component="img"
