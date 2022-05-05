@@ -12,49 +12,57 @@ export const Homepage = () => {
               name: "Random Name #1",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/algo.jpg",
-              author: "Friend1"
+              author: "Friend1",
+              ratings: 4.2
           },
           {
               name: "Random Name #2",
               description: "Hello World!",
               img: "./img/react.jpg",
-              author: "Friend2"
+              author: "Friend2",
+              ratings: 3.8,
           },
           {
               name: "Random Name #3",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/python.jpg",
-              author: "Friend3"
+              author: "Friend3",
+              ratings: 4.5
           },
           {
               name: "Random Name #4",
               description: "Hello World!",
               img: "./img/js.png",
-              author: "Friend4"
+              author: "Friend4",
+              ratings: 4.9
           },
           {
               name: "Random Name #5",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/java.jpg",
-              author: "Friend5"
+              author: "Friend5",
+              ratings: 4.8
           },
           {
               name: "Random Name #6",
               description: "Hello World!",
               img: "./img/infotech.jpg",
-              author: "Friend6"
+              author: "Friend6",
+              ratings: 4.6,
           },
           {
               name: "Random Name #7",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/cpp.jpeg",
-              author: "Friend7"
+              author: "Friend7",
+              ratings: 4.3,
           },
           {
               name: "Random Name #8",
               description: "Hello World!",
               img: "./img/cal.jpeg",
-              author: "Friend8"
+              author: "Friend8",
+              ratings: 4.5,
           }
         ]
       )
@@ -68,7 +76,7 @@ export const Homepage = () => {
   else {
     return (
       <Fragment>
-          <div className = "flex w-full bg-slate-100 shadow-inner px-60">
+          <div className = "flex w-full bg-cyan-100 shadow-inner px-60">
             <div className = "py-10  font-semibold  w-1/2 flex" style = {{height: "300px", fontSize: "28px", fontFamily: "'Open Sans', sans-serif"}}>
               <div className = "m-auto">
                 Welcome back, username!
