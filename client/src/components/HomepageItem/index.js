@@ -19,7 +19,8 @@ const HpPopup = styled(({ className, ...props }) => (
     backgroundColor: "rgb(236 254 255)"
   },
 }));
-export const HpItem = (props) => { // TODO: update the detail @ntquanghai
+export const HpItem = (props) => { 
+  // TODO: #2 update the detail @ntquanghai
   const { img, courseName, desc, author, key, ratings } = props;
   return (
     <Link to="/courseDetail">
