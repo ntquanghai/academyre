@@ -14,7 +14,7 @@ export function HpCarousel(props) {
   const data = props.data;
 
   return (
-    <div className="py-10 w-3/4 m-auto">
+    <div className="py-10 w-3/4 m-auto ">
       <div className="font-semibold text-3xl mb-4">
         Wondering what to learn?
       </div>

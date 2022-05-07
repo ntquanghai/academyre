@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { Rating } from "@mui/material";
 
 const HpPopup = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -46,29 +47,9 @@ export const HpItem = (props) => {
             <div className="text-xs text-gray-400 mb-2"></div>
           </React.Fragment>
         }
-      />
-        <img
-          className="mb-2"
-          style={{ width: "320px", height: "150px" }}
-          src={img}
-        ></img>
-        <div className="font-semibold text-lg">{courseName}</div>
-        <div className="text-xs text-gray-400 mb-2">{author}</div>
-        <div className="">{desc}</div>
-        <HpPopup
-          placement="right-start"
-          title={
-            <React.Fragment>
-              <div className="font-semibold text-lg">{courseName}</div>
-              <div className="text-green-600">
-                Last updated: <b>24/02/2022</b>
-              </div>
-              <div className="text-xs text-gray-400 mb-2"></div>
-            </React.Fragment>
-          }
-        >
-          <Button className="w-full h-full absolute top-0 left-0"></Button>
-        </HpPopup>
-      </div>
+      >
+        <Button className="w-full h-full absolute top-0 left-0"></Button>
+      </HpPopup>
+    </div>
   );
 };
