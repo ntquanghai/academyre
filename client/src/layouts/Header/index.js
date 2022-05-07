@@ -7,7 +7,7 @@ import { Dropdown } from "../../components/Dropdown";
 
 export default function Header() {
   return (
-    <Box className="w-full flex items-center justify-between mt-2 border-b">
+    <Box className="w-full flex items-center justify-between mt-2 border-b bg-white">
       <Link to="/">
         <img
           className="mx-4 w-20 h-20"
