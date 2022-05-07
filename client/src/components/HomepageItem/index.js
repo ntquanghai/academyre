@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { Rating } from "@mui/material";
 
 const HpPopup = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -23,53 +24,44 @@ export const HpItem = (props) => {
   const { img, courseName, desc, author, key, ratings } = props;
   return (
     <div
-      className=" border m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative"
+      className=" border bg-cyan-100 border-black m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative"
       style={{ width: "320px", height: "300px" }}
       key={key}
     >
       <img
-        className="mb-2"
+        className="mb-2 border border-black"
         style={{ width: "320px", height: "150px" }}
         src={img}
       ></img>
       <div className="font-semibold text-lg">{courseName}</div>
       <div className="text-xs text-gray-400 mb-2">{author}</div>
-      <div className="">{desc}</div>
+      <div className="flex flex-row">
+        <div className = "text-sm mr-1 font-semibold text-yellow-500">
+          {ratings}
+        </div>
+        <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly size="small"/>
+      </div>
       <HpPopup
         placement="right-start"
         title={
           <React.Fragment>
-            <div className="font-semibold text-lg">{courseName}</div>
-            <div className="text-green-600">
-              Last updated: <b>24/02/2022</b>
+            <div className = "p-2">
+              <div className="font-semibold text-lg w-full">{courseName}</div>
+              <div className="text-green-600 w-full">
+                Last updated: <b>24/02/2022</b>
+              </div>
+              <div className="w-full">{desc}</div>
+
+              <div>
+              
+              </div>
+              <div className="text-xs text-gray-400 mb-2"></div>
             </div>
-            <div className="text-xs text-gray-400 mb-2"></div>
           </React.Fragment>
         }
       >
-        <img
-          className="mb-2"
-          style={{ width: "320px", height: "150px" }}
-          src={img}
-        ></img>
-        <div className="font-semibold text-lg">{courseName}</div>
-        <div className="text-xs text-gray-400 mb-2">{author}</div>
-        <div className="">{desc}</div>
-        <HpPopup
-          placement="right-start"
-          title={
-            <React.Fragment>
-              <div className="font-semibold text-lg">{courseName}</div>
-              <div className="text-green-600">
-                Last updated: <b>24/02/2022</b>
-              </div>
-              <div className="text-xs text-gray-400 mb-2"></div>
-            </React.Fragment>
-          }
-        >
-          <Button className="w-full h-full absolute top-0 left-0"></Button>
-        </HpPopup>
-      </div>
-    </Link>
+        <Button className="w-full h-full absolute top-0 left-0"></Button>
+      </HpPopup>
+    </div>
   );
 };
