@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Rating } from "@mui/material";
-
+import {Link} from "react-router-dom"
 const HpPopup = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -23,6 +23,7 @@ const HpPopup = styled(({ className, ...props }) => (
 export const HpItem = (props) => {
   const { img, courseName, desc, author, key, ratings } = props;
   return (
+    <Link to="/courseDetail">
     <div
       className=" border bg-cyan-100 border-black m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative"
       style={{ width: "320px", height: "300px" }}
@@ -63,5 +64,6 @@ export const HpItem = (props) => {
         <Button className="w-full h-full absolute top-0 left-0"></Button>
       </HpPopup>
     </div>
+    </Link>
   );
 };

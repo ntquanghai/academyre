@@ -1,8 +1,7 @@
 import React from "react";
-import "./index.css"
 export const Footer = () => {
   return (
-    <div id="footer" className="bg-black text-white">
+    <div id="footer" className="bg-black text-white h-full">
       <div>
         <h1>Tech the world online</h1>
         <p>
