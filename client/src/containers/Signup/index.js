@@ -1,6 +1,4 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -8,10 +6,10 @@ import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ButtonPrimary from "../../components/Button";
 
 function Copyright(props) {
   return (
@@ -23,7 +21,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Academyre
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -55,9 +53,13 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <React.Fragment>
+            <img
+              className="mx-4 w-20 h-20"
+              src="./logo-removebg-preview.png"
+              alt=""
+            />
+          </React.Fragment>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -119,14 +121,14 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button
+            <ButtonPrimary
               type="submit"
-              fullWidth
+              className="bg-blue-400 font-bold my-2"
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              fullWidth
             >
               Sign Up
-            </Button>
+            </ButtonPrimary>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">

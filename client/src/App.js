@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Fragment } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./containers/Signup";
 import { Homepage } from "./containers/Home";
 import Login from "./containers/Login";
 import Header from "./layouts/Header";
 import { SearchPage } from "./containers/SearchPage";
 import { CourseDetail } from "./containers/CourseDetail";
+import { Footer } from "./layouts/Footer";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/courseDetail" element={<CourseDetail />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Fragment>
   );

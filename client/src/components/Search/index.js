@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 export const SearchField = () => {
   const [value, setValue] = useState("");
-  // const valueRef = useRef(""); //creating a refernce for TextField Component
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     console.log("submit");
@@ -27,6 +26,7 @@ export const SearchField = () => {
           value={value}
           onChange={onChangeHandler}
           placeholder="Search for anything"
+          autoComplete="off"
         />
         <button type="submit" className="pl-4 hover:cursor-not-allowed">
           <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
