@@ -15,22 +15,66 @@ export function HpCarousel(props) {
 
   return (
     <div className="py-10 w-3/4 m-auto">
-      <div className="font-semibold text-2xl mb-4">
+      <div className="font-semibold text-3xl mb-4">
         Wondering what to learn?
       </div>
-      <Slider {...settings}>
-        {data.map((courseData, index) => {
-          return (
-            <HpItem
-              key={index}
-              img={courseData.img}
-              courseName={courseData.name}
-              courseDesc={courseData.description}
-              author={courseData.author}
-            ></HpItem>
-          );
-        })}
-      </Slider>
+      <div className = "font-semibold text-xl mb-16">
+        New and interesting
+        <div className = "mt-4 font-normal text-base">
+          <Slider {...settings}>
+          {data.map((courseData, index) => {
+            return (
+              <HpItem
+                key={index}
+                img={courseData.img}
+                courseName={courseData.name}
+                desc={courseData.description}
+                author={courseData.author}
+                ratings={courseData.ratings}
+              ></HpItem>
+            );
+          })}
+        </Slider>
+        </div>
+      </div>
+      <div className = "font-semibold text-xl mb-16">
+        Hot in Programming Languages
+        <div className = "mt-4 font-normal text-base">
+          <Slider {...settings}>
+          {data.map((courseData, index) => {
+            return (
+              <HpItem
+                key={index}
+                img={courseData.img}
+                courseName={courseData.name}
+                desc={courseData.description}
+                author={courseData.author}
+                ratings={courseData.ratings}
+              ></HpItem>
+            );
+          })}
+        </Slider>
+        </div>
+      </div>
+      <div className = "font-semibold text-xl mb-16">
+        Students are viewing
+        <div className = "mt-4 font-normal text-base">
+          <Slider {...settings}>
+          {data.map((courseData, index) => {
+            return (
+              <HpItem
+                key={index}
+                img={courseData.img}
+                courseName={courseData.name}
+                desc={courseData.description}
+                author={courseData.author}
+                ratings={courseData.ratings}
+              ></HpItem>
+            );
+          })}
+        </Slider>
+        </div>
+      </div>
     </div>
   );
 }
