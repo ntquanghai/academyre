@@ -13,12 +13,39 @@ export function HpCarousel(props) {
 
   const data = props.data;
 
+  const list = ["New and Interesting","Hot in Programming Languages","Students are viewing"]
+
   return (
     <div className="py-10 w-3/4 m-auto ">
       <div className="font-semibold text-3xl mb-4">
         Wondering what to learn?
       </div>
-      <div className = "font-semibold text-xl mb-16">
+      {list.map((listData, index) =>{
+        return(
+          <div className = "font-semibold text-xl mb-16">
+            {listData}
+          <div className = "mt-4 font-normal text-base">
+            <Slider {...settings}>
+            {data.map((courseData, index) => {
+              return (
+                <HpItem
+                  key={index}
+                  img={courseData.img}
+                  courseName={courseData.name}
+                  desc={courseData.description}
+                  author={courseData.author}
+                  ratings={courseData.ratings}
+                  category = {courseData.category}
+                  cost = {courseData.cost}
+                ></HpItem>
+              );
+            })}
+            </Slider>
+          </div>
+          </div>
+        )
+      })}
+      {/* <div className = "font-semibold text-xl mb-16">
         New and interesting
         <div className = "mt-4 font-normal text-base">
           <Slider {...settings}>
@@ -50,10 +77,12 @@ export function HpCarousel(props) {
                 desc={courseData.description}
                 author={courseData.author}
                 ratings={courseData.ratings}
+                category = {courseData.category}
+                cost = {courseData.cost}
               ></HpItem>
             );
           })}
-        </Slider>
+          </Slider>
         </div>
       </div>
       <div className = "font-semibold text-xl mb-16">
@@ -74,7 +103,7 @@ export function HpCarousel(props) {
           })}
         </Slider>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

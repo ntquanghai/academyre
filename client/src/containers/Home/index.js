@@ -12,57 +12,154 @@ export const Homepage = () => {
               name: "Random Name #1",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/algo.jpg",
-              author: "Friend1",
-              ratings: 4.2
+              author: "Author Full Name",
+              ratings: {
+                score: 4.2,
+                raters: 392,
+              },
+              category: "Programming Languages",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: null,
+                  available: null,
+                  duration: null,
+                }
+              }
           },
           {
               name: "Random Name #2",
               description: "Hello World!",
               img: "./img/react.jpg",
               author: "Friend2",
-              ratings: 3.8,
+              ratings: {
+                score: 3.8,
+                raters: 392,
+              },
+              category: "Software Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: null,
+                  available: null,
+                  duration: null,
+                }
+              }
+              
           },
           {
               name: "Random Name #3",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/python.jpg",
               author: "Friend3",
-              ratings: 4.5
+              ratings: {
+                score: 4.5,
+                raters: 392,
+              },
+              category: "Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: "$19.99",
+                  available: true,
+                  duration: new Date(2022,4,11),
+                }
+              }
           },
           {
               name: "Random Name #4",
               description: "Hello World!",
               img: "./img/js.png",
               author: "Friend4",
-              ratings: 4.9
+              ratings: {
+                score: 4.9,
+                raters: 392,
+              },
+              category: "Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: null,
+                  available: null,
+                  duration: null,
+                }
+              }
           },
           {
               name: "Random Name #5",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/java.jpg",
               author: "Friend5",
-              ratings: 4.8
+              ratings: {
+                score: 4.8,
+                raters: 392,
+              },
+              category: "Programming Languages",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: null,
+                  available: null,
+                  duration: null,
+                }
+              }
           },
           {
               name: "Random Name #6",
               description: "Hello World!",
               img: "./img/infotech.jpg",
               author: "Friend6",
-              ratings: 4.6,
+              ratings: {
+                score: 4.6,
+                raters: 392,
+              },
+              category: "Software Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: null,
+                  available: null,
+                  duration: null,
+                }
+              }
           },
           {
               name: "Random Name #7",
               description: "Probably the most random thing you have ever seen!",
               img: "./img/cpp.jpeg",
               author: "Friend7",
-              ratings: 4.3,
+              ratings: {
+                score: 4.3,
+                raters: 392,
+              },
+              category: "Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: "$19.99",
+                  available: true,
+                  duration: "29/11/2022",
+                }
+              }
           },
           {
               name: "Random Name #8",
               description: "Hello World!",
               img: "./img/cal.jpeg",
               author: "Friend8",
-              ratings: 4.5,
+              ratings: {
+                score: 4.5,
+                raters: 392,
+              },
+              category: "Software Engineering",
+              cost:{
+                current: "$29.99",
+                sale: {
+                  cost: "$19.99",
+                  available: true,
+                  duration: new Date(2022,11,29),
+                }
+              }
           }
         ]
       )
@@ -76,16 +173,16 @@ export const Homepage = () => {
   else {
     return (
       <Fragment>
-          <div className = "flex w-full bg-cyan-100 shadow-inner px-60">
+          <div className = "flex bg-cyan-200 shadow-inner py-10 px-10 w-3/4 mx-auto">
             <div className = "py-10  font-semibold  w-1/2 flex" style = {{height: "300px", fontSize: "28px", fontFamily: "'Open Sans', sans-serif"}}>
-              <div className = "m-auto">
+              <div className = "m-auto font-serif">
                 Welcome back, username!
                 <br/>
-                <div className = "font-normal text-2xl">This is where you left off.</div>
+                <div className = "font-normal text-2xl font-serif">This is where you left off.</div>
               </div>
             </div>
             <div className = "flex-grow flex relative">
-              <div className = "py-6 px-6 bg-white shadow-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between" style = {{width: "480px", height: "240px"}}>
+              <div className = "py-6 px-6 border border-black bg-white shadow-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between" style = {{width: "480px", height: "240px"}}>
                 <div className = "flex flex-col justify-between">
                   <div>
                     <div className = "font-semibold text-xl">Latest course</div>
