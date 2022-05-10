@@ -8,6 +8,7 @@ import Header from "./layouts/Header";
 import { SearchPage } from "./containers/SearchPage";
 import { CourseDetail } from "./containers/CourseDetail";
 import { Footer } from "./layouts/Footer";
+import { ProfilePage } from "./containers/ProfilePage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/courseDetail" element={<CourseDetail />}></Route>
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

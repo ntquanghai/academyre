@@ -62,7 +62,7 @@ export const Homepage = () => {
                 sale: {
                   cost: "$19.99",
                   available: true,
-                  duration: new Date(2022,4,11),
+                  duration: new Date(2022,4,13),
                 }
               }
           },
