@@ -52,7 +52,7 @@ export const CourseDetail = () => {
           <h1 className="font-semibold text-2xl my-4">What you'll learn</h1>
           <div className="mx-0 my-8">
             <ul className="flex justify-between flex-wrap flex-row">
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -64,7 +64,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -77,7 +77,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -88,7 +88,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -100,7 +100,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -112,7 +112,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -124,7 +124,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
@@ -136,7 +136,7 @@ export const CourseDetail = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              <li className="w-1/2">
                 <div className="flex items-start w-full h-auto text-left whitespace-normal tracking-normal">
                   <img
                     src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-tick-interface-royyan-wijaya-detailed-outline-royyan-wijaya.png"
