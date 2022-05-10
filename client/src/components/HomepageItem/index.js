@@ -31,12 +31,21 @@ const returnCost = (costObj) => {
   else {
     if((604800000 - (costObj.sale.duration - today))>0) {
       let dayRemaining = Math.ceil((costObj.sale.duration - today)/(1000*60*60*24))
-      if(dayRemaining<8){
+      if(dayRemaining==1){
         return(
           <div className = "font-bold flex flex-row">
             <strike>{costObj.current}</strike> 
             <div className = "ml-1">{costObj.sale.cost}</div>
             <div className = "ml-1 font-semibold text-red-600">(Sale ending in {dayRemaining} day)</div>
+          </div>
+        )
+      }
+      else if(dayRemaining<8) {
+        return(
+          <div className = "font-bold flex flex-row">
+            <strike>{costObj.current}</strike> 
+            <div className = "ml-1">{costObj.sale.cost}</div>
+            <div className = "ml-1 font-semibold text-red-600">(Sale ending in {dayRemaining} days)</div>
           </div>
         )
       }
