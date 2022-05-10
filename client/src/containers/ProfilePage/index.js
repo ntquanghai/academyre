@@ -41,8 +41,9 @@ export const ProfilePage = () => {
 
                                     <ListItemText className = {"font-bold flex-grow-0"} primary="Account" />
                                 </ListItemButton>
-                            </ListItem>                            
+                            </ListItem>                         
                         </List>
+                        <button className = "text-center w-full text-red-600 font-semibold ">Log out</button>
                     </div>
                 </div>
                 <div>
