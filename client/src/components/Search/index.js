@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const SearchField = () => {
   const [value, setValue] = useState("");
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export const SearchField = () => {
         className="border flex-row-reverse rounded-full flex border-black"
       >
         <input
-          className="w-full !outline-none py-3 px-4 rounded-full"
+          className="w-full !outline-none py-4 px-4 rounded-full"
           id="search"
           name="search"
           value={value}
