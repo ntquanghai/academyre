@@ -22,11 +22,9 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/courseDetail" element={<CourseDetail />}></Route>
-          <Route path="profile">
-            <Route path="edit-profile" element={<ProfilePage />}/>
-            <Route path="courses" element={<ProfilePage />}/>
-            <Route path="account" element={<ProfilePage />}/>
-          </Route>
+          <Route path="/profile/edit-profile" element={<ProfilePage />}/>
+          <Route path="/profile/courses" element={<ProfilePage />}/>
+          <Route path="/profile/account" element={<ProfilePage />}/>
           <Route path="*" element = {<NotFound/>}/>
         </Routes>
         <Footer />
