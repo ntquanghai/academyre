@@ -4,27 +4,42 @@ import { SearchField } from "../../components/Search";
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../../components/Button";
 import { Dropdown } from "../../components/Dropdown";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import * as React from "react";
+import { HeaderCategoryBar } from "../../components/HeaderCategoryBar";
 
 export default function Header() {
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   return (
-    <Box className="w-full flex items-center justify-between mt-2 pb-8 pt-2 border-b bg-white">
+    <div>
+      <Box className="w-full flex items-center px-4 mt-2 border-b border-gray-300 bg-white">      
       <Link to="/">
         <img
-          className="mx-4 w-20 h-20"
-          src="./logo-removebg-preview.png"
+          className="w-20 h-20"
+          src="\logo-removebg-preview.png"
           alt=""
         />
       </Link>
-      <Dropdown />
+      {/* <Dropdown/> */}
       <SearchField />
-      <div className="flex space-x-4 mx-8">
+      <div className="flex ml-auto space-x-4">
         <Link to="/login">
-          <ButtonPrimary variant="outlined">Login</ButtonPrimary>
+          <button className = "py-2 px-4 font-bold border-black border hover:opacity-50 text-sm">Log in</button>
         </Link>
         <Link to="/signup">
-          <ButtonPrimary variant="outlined" className="border-black text-black">Signup</ButtonPrimary>
+        <button className = "py-2 px-4 font-bold bg-black text-white border hover:opacity-50 text-sm">Sign up</button>
         </Link>
       </div>
     </Box>
+    <HeaderCategoryBar/>
+    </div>
+      
   );
 }

@@ -14,13 +14,13 @@ export const SearchField = () => {
     setValue(e.target.value);
   };
   return (
-    <div className="w-1/2 ">
+    <div className="w-1/2 ml-4 text-sm">
       <form
         onSubmit={onSubmitHandler}
         className="border flex-row-reverse rounded-full flex border-black"
       >
         <input
-          className="w-full !outline-none py-4 px-4 rounded-full"
+          className="w-full !outline-none py-3 px-4 rounded-full"
           id="search"
           name="search"
           value={value}

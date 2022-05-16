@@ -11,10 +11,10 @@ export const CourseSummary = (props) => {
         className="object-cover"
       />
       <div className="px-8 py-4">
-        <div className="font-bold text-2xl my-8">$84.99</div>
+        <div className="font-bold text-3xl py-2">$84.99</div>
         <div className="flex justify-between mb-4">
           <ButtonPrimary
-            className="font-semibold py-4 px-8 text-white bg-blue-400 rounded-none"
+            fullWidth className="mr-1 font-semibold py-4 px-8 text-white bg-blue-400 rounded-none"
             variant="contained"
           >
             Add to cart
@@ -34,16 +34,14 @@ export const CourseSummary = (props) => {
           Buy Now
         </ButtonPrimary>
         <div>
-          <p className="font-semibold text-md my-4">This course includes:</p>
-          <div>
-            17 hours on-demand video <br />
-            8 articles <br />
-            61 downloadable resources <br />
-            Full lifetime access Access on mobile and TV
-            <br />
-            Certificate of completion
-            <br />
-          </div>
+          <p className="font-semibold text-xl mt-4 text-black">This course includes:</p>
+          <ul>
+            <li>17 hours on-demand videos</li>
+            <li>8 articles</li>
+            <li>61 downloadable resources</li>
+            <li>Full lifetime access Access on mobile and TV</li>
+            <li>Certificate of completion</li>
+          </ul>
         </div>
       </div>
     </div>

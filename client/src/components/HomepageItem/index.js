@@ -40,6 +40,11 @@ const returnCost = (costObj) => {
           </div>
         )
       }
+      else if(dayRemaining<=0) {
+        return(
+          <div className = "font-bold">{costObj.current}</div>
+        )
+      }
       else if(dayRemaining<8) {
         return(
           <div className = "font-bold flex flex-row">
@@ -70,13 +75,13 @@ export const HpItem = (props) => {
   return (
     <Link to="/courseDetail">
     <div
-      className="border border-black bg-white m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative "
+      className=" bg-white m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative "
       style={{ width: "320px", height: "300px" }}
       key={key}
     >
       <img
-        className="mb-2 border border-black"
-        style={{ width: "320px", height: "150px" }}
+        className="mb-2"
+        style={{ width: "100%", height: "150px" }}
         src={img}
       ></img>
       <div className="font-semibold text-lg truncate">{courseName}</div>

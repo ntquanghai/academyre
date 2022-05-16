@@ -2,6 +2,8 @@ import React from "react";
 import CustomSeparator from "../../components/Breadcrumbs";
 import { CourseSummary } from "../../components/CourseSummary";
 import ReadOnlyRating from "../../components/Rating";
+import { Rating } from "@mui/material";
+
 import "./index.css";
 export const CourseDetail = () => {
   return (
@@ -9,18 +11,24 @@ export const CourseDetail = () => {
       <div className="bg-[#1C1D1F]">
         <div className="px-20 py-8 space-y-4 w-1/2">
           <CustomSeparator />
-          <h2 className="font-bold text-2xl text-white">
+          <h2 className="font-bold text-4xl text-white">
             Getting started with Web3 Development
           </h2>
-          <p className="text-xl">
+          <div className="text-xl font-light text-white"> 
             Develop your first decentralized application from scratch on the
             Ethereum blockchain with Solidity
-          </p>
-          <ReadOnlyRating rating={3} />
-          <p>
+            <div className = "flex flex-row">
+              <div className = "text-base mr-1 font-semibold text-yellow-600">
+                4.5
+              </div>
+              <Rating className = "my-auto" sx = {{color:"rgb(245 158 11)"}} name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly size = "small"/>
+              <div className = "text-base mr-1 text-gray-500"><p/>{"(392)"}</div>
+            </div>
+
+
             Created by <u className="text-blue-400">Sebastien Arbogast</u>,{" "}
             <u className="text-blue-400">Said Eloudrhiri</u>
-          </p>
+          </div>
           <div className="flex space-x-4">
             <div className="flex space-x-4">
               <img
@@ -46,7 +54,7 @@ export const CourseDetail = () => {
           </div>
         </div>
       </div>
-      <CourseSummary className="fixed bg-white right-48 top-36" />
+      <CourseSummary className="absolute bg-white right-48 top-40" />
       <div>
         <div className="rounded-lg w-1/2 border mx-auto ml-24 px-4 my-12">
           <h1 className="font-semibold text-2xl my-4">What you'll learn</h1>

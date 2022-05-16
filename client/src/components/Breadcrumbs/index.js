@@ -22,16 +22,6 @@ export default function CustomSeparator() {
     <Link
       className="text-blue-500 font-semibold text-base"
       underline="hover"
-      key="1"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
-      MUI
-    </Link>,
-    <Link
-      className="text-blue-500 font-semibold text-base"
-      underline="hover"
       key="2"
       color="inherit"
       href="/material-ui/getting-started/installation/"
@@ -39,9 +29,6 @@ export default function CustomSeparator() {
     >
       Core
     </Link>,
-    <Typography key="3" className="text-blue-500 font-semibold text-base">
-      Breadcrumb
-    </Typography>,
   ];
 
   return (

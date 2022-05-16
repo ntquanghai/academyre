@@ -9,6 +9,7 @@ import { SearchPage } from "./containers/SearchPage";
 import { CourseDetail } from "./containers/CourseDetail";
 import { Footer } from "./layouts/Footer";
 import { ProfilePage } from "./containers/ProfilePage";
+import { NotFound } from "./containers/NotFound";
 
 function App() {
   return (
@@ -21,7 +22,12 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/courseDetail" element={<CourseDetail />}></Route>
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="profile">
+            <Route path="edit-profile" element={<ProfilePage />}/>
+            <Route path="courses" element={<ProfilePage />}/>
+            <Route path="account" element={<ProfilePage />}/>
+          </Route>
+          <Route path="*" element = {<NotFound/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
