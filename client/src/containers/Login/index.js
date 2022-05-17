@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ButtonPrimary from "../../components/Button";
-import "./index.css"
 export function Copyright(props) {
   return (
     <Typography
@@ -43,7 +42,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container className="form" component="main" maxWidth="xs">
+      <Container className="h-screen" component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
