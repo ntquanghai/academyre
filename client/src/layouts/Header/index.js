@@ -19,7 +19,7 @@ export default function Header() {
   };
   return (
     <div>
-      <Box className="w-full flex items-center px-4 mt-2 border-b border-gray-300 bg-white">      
+      <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white">      
       <Link to="/">
         <img
           className="w-20 h-20"

@@ -17,7 +17,7 @@ const theme = createTheme({
     },
   },
 });
-export default function CustomSeparator() {
+export default function CustomSeparator(props) {
   const breadcrumbs = [
     <Link
       className="text-blue-500 font-semibold text-base"
@@ -27,7 +27,7 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Core
+      {props.text}
     </Link>,
   ];
 

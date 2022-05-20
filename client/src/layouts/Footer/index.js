@@ -1,7 +1,7 @@
 import React from "react";
 export const Footer = () => {
   return (
-    <div id="footer" className="bg-black text-white p-8">
+    <footer id="footer" className="bg-black text-white p-8 mt-auto w-full">
       <div>
       </div>
       <div>
@@ -20,6 +20,6 @@ export const Footer = () => {
           <div className = "text-xs my-auto">© 2022 Academyre, Inc.</div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

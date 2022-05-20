@@ -10,7 +10,7 @@ export const CourseSummary = (props) => {
         alt=""
         className="object-cover"
       />
-      <div className="px-8 py-4">
+      <div className="px-8 pt-4 pb-8">
         <div className="font-bold text-3xl py-2">$84.99</div>
         <div className="flex justify-between mb-4">
           <ButtonPrimary

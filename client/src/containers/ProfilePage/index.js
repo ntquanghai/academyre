@@ -123,7 +123,8 @@ export const ProfilePage = () => {
     if(pageState) {
         if(pageState == "profile") {
             return(
-                <div style = {{minHeight: "100vh",width:"1000px"}} className = "m-auto my-5 h-full">
+                <div className = "pt-8 pb-32">
+                <div style = {{width:"1000px"}} className = "mx-auto h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
                         <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 !w-60">
                             <Avatar
@@ -291,12 +292,13 @@ export const ProfilePage = () => {
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
+                </div>
             )
         }
         else if(pageState == "courses") {
             return(
-                <div style = {{minHeight: "100vh", width:"1000px"}} className = "m-auto my-5 h-full">
+                <div style = {{width:"1000px"}} className = "py-8 m-auto  h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
                         <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 w-60">
                             <Avatar
@@ -366,7 +368,7 @@ export const ProfilePage = () => {
         }
         else if(pageState == "account") {
             return(
-                <div style = {{minHeight: "100vh",  width:"1000px"}} className = "m-auto my-5 h-full">
+                <div style = {{width:"1000px"}} className = "py-8 m-auto  h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
                         <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 w-60">
                             <Avatar
