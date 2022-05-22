@@ -3,7 +3,16 @@ import {useState, useEffect, Fragment} from "react";
 import { HpCarousel } from "../../components/HomepageCarousel";
 import { TabPanel } from "../../components/TabPanel";
 import { Rating } from "@mui/material";
-import CategoryAccordion from "../../components/CategoryAccordion";
+import { CategoryAccordion } from "../../components/CategoryAccordion";
+import { CategoryItem } from "../../components/CategoryAccordion/categoryItem";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { pink, grey } from '@mui/material/colors';
+
 
 export const CategoryPage = () => {
     const [hpData, sethpData] = useState([])
@@ -247,6 +256,36 @@ export const CategoryPage = () => {
                   <div className = "flex flex-row">
                     <div>
                     <CategoryAccordion></CategoryAccordion>
+
+                    </div>
+                    
+                    <div className = "px-8 ml-10 flex flex-col flex-grow">
+                      <div className = "inline-block">
+                        <FormControl fullWidth >
+                          <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
+                          <Select
+                            label="Sort by"
+                            className = "rounded-none text-black border-black outline-black bg-gray-50"
+                          >
+                            <MenuItem value={10}>Newest</MenuItem>
+                            <MenuItem value={20}>Highest rated</MenuItem>
+                            <MenuItem value={30}>Most popular</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                    {hpData.map((courseData, index) => {
+                      return (
+                        <CategoryItem
+                          img={courseData.img}
+                          courseName={courseData.name}
+                          desc={courseData.description}
+                          author={courseData.author}
+                          ratings={courseData.ratings}
+                          category = {courseData.category}
+                          cost = {courseData.cost}
+                        ></CategoryItem>
+                        );
+                    })}
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ import { Rating } from "@mui/material";
 import {Link} from "react-router-dom"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const HpPopup = styled(({ className, ...props }) => (
+export const HpPopup = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
@@ -21,7 +21,7 @@ const HpPopup = styled(({ className, ...props }) => (
   },
 }));
 
-const returnCost = (costObj) => {
+export const returnCost = (costObj) => {
   const today = new Date()
   if(!costObj.sale.available) {
       return(

@@ -9,10 +9,12 @@ import { RadioGroup } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
 import { Radio } from '@mui/material';
 import { Rating, Checkbox } from '@mui/material';
-import RangeSlider from './slider';
+import RangeSlider from './slider'
+import { pink, grey } from '@mui/material/colors';
 
-export default function CategoryAccordion() {
-    const [ratingsChosen, setRatingsChosen] = useState()
+
+export const CategoryAccordion = () => {
+    const [ratingsChosen, setRatingsChosen] = useState("on")
     const [durationChosen, setDurationChosen] = useState()
     const [levelChosen, setLevelChosen] = useState()
     const [price, setPrice] = useState()
@@ -21,8 +23,8 @@ export default function CategoryAccordion() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-  return (
+    
+    return (
     <div className = "w-80">
       <Accordion disableGutters className = "shadow-none">
         <AccordionSummary
@@ -35,30 +37,50 @@ export default function CategoryAccordion() {
         <AccordionDetails>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
+                defaultValue="4.2"
                 name="radio-buttons-group"
             >
                 <div className='flex flex-row'>
                     <FormControlLabel 
-                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={4.2} control={<Radio />}/>
+                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={4.2} control={<Radio sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }}/>}/>
                     <Rating className = "my-auto" size ="small" name="read-only" value={4.5} precision={0.5} readOnly />
                     <div className = "ml-2 text-black text-xs my-auto">4.5 and above <span className = "text-gray-500 text-xs">(3000)</span></div>
                 </div>
                 <div className='flex flex-row'>
                     <FormControlLabel 
-                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={4.2} control={<Radio />}/>
+                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={3.8} control={<Radio sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }}/>}/>
                     <Rating className = "my-auto" size ="small" name="read-only" value={4.0} precision={0.5} readOnly />
                     <div className = "ml-2 text-black text-xs my-auto">4.0 and above <span className = "text-gray-500 text-xs">(3000)</span></div>
                 </div>
                 <div className='flex flex-row'>
                     <FormControlLabel 
-                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={4.2} control={<Radio />}/>
+                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={3.3} control={<Radio sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }}/>}/>
                     <Rating className = "my-auto" size ="small" name="read-only" value={3.5} precision={0.5} readOnly />
                     <div className = "ml-2 text-black text-xs my-auto">3.5 and above <span className = "text-gray-500 text-xs">(3000)</span></div>
                 </div>
                 <div className='flex flex-row'>
                     <FormControlLabel 
-                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={4.2} control={<Radio />}/>
+                    className = "mr-0" onChange = {(event)=>console.log(event.target.value)} value={2.9} control={<Radio sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }}/>}/>
                     <Rating className = "my-auto" size ="small" name="read-only" value={3.0} precision={0.5} readOnly />
                     <div className = "ml-2 text-black text-xs my-auto">Under 3.5 <span className = "text-gray-500 text-xs">(3000)</span></div>
                 </div>
@@ -75,11 +97,36 @@ export default function CategoryAccordion() {
         </AccordionSummary>
         <AccordionDetails>
             <div className='flex flex-col'>
-                    <FormControlLabel control={<Checkbox size="small"/>}  label={<span className='text-sm'>Under 1 hour</span>}/>
-                    <FormControlLabel control={<Checkbox size="small"/>}  label={<span className='text-sm'>1-3 hours</span>}/>
-                    <FormControlLabel control={<Checkbox size="small"/>}  label={<span className='text-sm'>3-10 hours</span>}/>
-                    <FormControlLabel control={<Checkbox size="small"/>}  label={<span className='text-sm'>10-18 hours</span>}/>
-                    <FormControlLabel control={<Checkbox size="small"/>}  label={<span className='text-sm'>Over 18 hours</span>}/>
+                    <FormControlLabel control={<Checkbox sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }} size="small"/>}  label={<span className='text-sm'>Under 1 hour</span>}/>
+                    <FormControlLabel control={<Checkbox sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }} size="small"/>}  label={<span className='text-sm'>1-3 hours</span>}/>
+                    <FormControlLabel control={<Checkbox sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }} size="small"/>}  label={<span className='text-sm'>3-10 hours</span>}/>
+                    <FormControlLabel control={<Checkbox sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }} size="small"/>}  label={<span className='text-sm'>10-18 hours</span>}/>
+                    <FormControlLabel control={<Checkbox sx={{
+                        color: grey[900],
+                        '&.Mui-checked': {
+                          color: grey[900],
+                        },
+                      }} size="small"/>}  label={<span className='text-sm'>Over 18 hours</span>}/>
             </div>
         </AccordionDetails>
       </Accordion>
@@ -92,12 +139,14 @@ export default function CategoryAccordion() {
           <Typography className = "text-black font-bold">Price range</Typography>
         </AccordionSummary>
         <div className='flex flex-col'>
-            <span className='mx-auto'>Price range: ${value[0]} to ${value[1]}</span>
+            <span className='mx-auto'>Price range: from ${value[0]} to ${value[1]}</span>
             <AccordionDetails className="text-black mx-auto">
                 <RangeSlider 
+                    className ="mx-auto"
                     value = {value}
                     handleChange = {handleChange}
-                    className ="mx-auto"></RangeSlider>
+                    >
+                </RangeSlider>
             </AccordionDetails>
         </div>
       </Accordion>
