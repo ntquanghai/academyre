@@ -42,7 +42,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function CustomizedAccordions() {
+export default function CustomizedAccordions(props) {
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -53,7 +53,7 @@ export default function CustomizedAccordions() {
     <div>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography className = "text-black">Collapsible Group Item #1</Typography>
+          <Typography className = "text-black">{props.title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography className = "text-black">

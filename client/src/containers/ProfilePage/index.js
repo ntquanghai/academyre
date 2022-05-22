@@ -123,7 +123,7 @@ export const ProfilePage = () => {
     if(pageState) {
         if(pageState == "profile") {
             return(
-                <div className = "pt-8 pb-32">
+                <div className = "p-8 ">
                 <div style = {{width:"1000px"}} className = "mx-auto h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
                         <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 !w-60">

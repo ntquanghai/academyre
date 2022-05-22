@@ -4,14 +4,14 @@ import { HpCarousel } from "../../components/HomepageCarousel";
 
 export const Homepage = () => {
   const [hpData, sethpData] = useState([])
-
+  const [listData, setListData] = useState([])
   useEffect(() => {
       sethpData(
         [
           {
               name: "Random Name #1",
               description: "Probably the most random thing you have ever seen!",
-              img: "./img/algo.jpg",
+              img: "/img/algo.jpg",
               author: "Author Full Name",
               ratings: {
                 score: 4.2,
@@ -30,7 +30,7 @@ export const Homepage = () => {
           {
               name: "Random Name #2",
               description: "Hello World!",
-              img: "./img/react.jpg",
+              img: "/img/react.jpg",
               author: "Friend2",
               ratings: {
                 score: 3.8,
@@ -50,7 +50,7 @@ export const Homepage = () => {
           {
               name: "Random Name #3",
               description: "Probably the most random thing you have ever seen!",
-              img: "./img/python.jpg",
+              img: "/img/python.jpg",
               author: "Friend3",
               ratings: {
                 score: 4.5,
@@ -69,7 +69,7 @@ export const Homepage = () => {
           {
               name: "Random Name #4",
               description: "Hello World!",
-              img: "./img/js.png",
+              img: "/img/js.png",
               author: "Friend4",
               ratings: {
                 score: 4.9,
@@ -88,7 +88,7 @@ export const Homepage = () => {
           {
               name: "Random Name #5",
               description: "Probably the most random thing you have ever seen!",
-              img: "./img/java.jpg",
+              img: "/img/java.jpg",
               author: "Friend5",
               ratings: {
                 score: 4.8,
@@ -107,7 +107,7 @@ export const Homepage = () => {
           {
               name: "Random Name #6",
               description: "Hello World!",
-              img: "./img/infotech.jpg",
+              img: "/img/infotech.jpg",
               author: "Friend6",
               ratings: {
                 score: 4.6,
@@ -126,7 +126,7 @@ export const Homepage = () => {
           {
               name: "Random Name #7",
               description: "Probably the most random thing you have ever seen!",
-              img: "./img/cpp.jpeg",
+              img: "/img/cpp.jpeg",
               author: "Friend7",
               ratings: {
                 score: 4.3,
@@ -145,7 +145,7 @@ export const Homepage = () => {
           {
               name: "Random Name #8",
               description: "Hello World!",
-              img: "./img/cal.jpeg",
+              img: "/img/cal.jpeg",
               author: "Friend8",
               ratings: {
                 score: 4.5,
@@ -162,6 +162,9 @@ export const Homepage = () => {
               }
           }
         ]
+      )
+      setListData(
+        ["New and Interesting","Hot in Programming Languages","Students are viewing"]
       )
     },
     []
@@ -212,14 +215,30 @@ export const Homepage = () => {
               </div>
             </div>
           </div>
-          <Fragment>
-            <HpCarousel 
-              data = {hpData}
-            ></HpCarousel>
+          <div className="py-10 w-3/4 m-auto ">
+            <div className="font-semibold text-3xl mb-4">
+              Wondering what to learn?
+            </div>
+            <Fragment>
+              {
+                listData.map((data, index) =>{
+                  return(
+                    <div className = "font-semibold text-xl mb-16">
+                      {data}
+                    <div className = "mt-4 font-normal text-base">
+                      <HpCarousel
+                        data = {hpData}
+                      ></HpCarousel>
+                    </div>
+                    </div>
+                  )
+                })
+              }
+            </Fragment>
+          </div>
           </Fragment>
-          <div>Hiiiiiii</div>
-      </Fragment>
+
     )
-  };
+  }
   }
   

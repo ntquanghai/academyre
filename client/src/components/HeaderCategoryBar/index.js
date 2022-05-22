@@ -4,24 +4,24 @@ import * as React from "react";
 export const HeaderCategoryBar = (props) => {
     return(
         <div className = "w-full items-center flex flex-row justify-center shadow-lg py-4">
-            <div className = "px-4">
+            <a href = "/category/programming-languages" className = "px-4 hover:text-cyan-400">
                 Programming Languages
-            </div>
-            <div className = "px-4">
+            </a>
+            <a href = "/category/engineering" className = "px-4 hover:text-cyan-400">
                 Engineering
-            </div>
-            <div className = "px-4">
+            </a>
+            <a href = "/category/mathematics" className = "px-4 hover:text-cyan-400">
                 Mathematics
-            </div>
-            <div className = "px-4">
+            </a>
+            <a href = "/category/software-engineering" className = "px-4 hover:text-cyan-400">
                 Software Engineering
-            </div>
-            <div className = "px-4">
+            </a>
+            <a href = "/category/game-development" className = "px-4 hover:text-cyan-400">
                 Game Development
-            </div>
-            <div className = "px-4">
+            </a>
+            <a href = "/category/web-development" className = "px-4 hover:text-cyan-400">
                 Web Development
-            </div>
+            </a>
         </div>
     )
 }
