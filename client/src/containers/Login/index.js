@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container className="h-screen" component="main" maxWidth="xs">
+      <Container className="" component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
