@@ -11,6 +11,7 @@ import { Footer } from "./layouts/Footer";
 import { ProfilePage } from "./containers/ProfilePage";
 import { NotFound } from "./containers/NotFound";
 import { CategoryPage } from "./containers/CategoryPage";
+import { LessonPage } from "./containers/LessonPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/category/software-engineering/" element = {<CategoryPage/>}/>
           <Route path="/category/game-development/" element = {<CategoryPage/>}/>
           <Route path="/category/web-development/" element = {<CategoryPage/>}/>
+          <Route path="/course/courseDetail/study" element = {<LessonPage/>}/>
           <Route path="*" element = {<NotFound/>}/>
         </Routes>
         <Footer />

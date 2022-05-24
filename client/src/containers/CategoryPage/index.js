@@ -207,7 +207,7 @@ export const CategoryPage = () => {
                   <div className="font-semibold text-3xl mb-6">
                     Featured Course
                   </div>
-                  <div className = "w-5/6 border p-10 flex flex-row mx-auto" style = {{height:"300px"}}>
+                  <div className = "w-full border p-6 flex flex-row mx-auto" style = {{height:"300px"}}>
                       <div className="">
                         <img src = "\img\algo.jpg" className="h-full"></img>
                       </div>
@@ -215,8 +215,8 @@ export const CategoryPage = () => {
                         <div className = "font-semibold " style={{fontSize:"24px",overflowWrap: "break-word"}}>
                           {hpData[0].name}
                         </div>
-                        <div className = " " style = {{overflowWrap: "break-word"}}>
-                          {hpData[0].description}
+                        <div className = "text-xl" style = {{overflowWrap: "break-word"}}>
+                          {hpData[0].description} asdfkljhsadjkfgasjdg fhjsdagjhfgadshfgjha sdgfsdhjfgahjs gfjgsdhjgjasdgfgasdhjfghjadsgfhj
                         </div>
                         <div className = "text-sm mb-2 text-gray-500">
                           {hpData[0].author}

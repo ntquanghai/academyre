@@ -93,7 +93,7 @@ export const CategoryAccordion = () => {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className = "text-black font-bold">Accordion 2</Typography>
+          <Typography className = "text-black font-bold">Course duration</Typography>
         </AccordionSummary>
         <AccordionDetails>
             <div className='flex flex-col'>
@@ -139,7 +139,7 @@ export const CategoryAccordion = () => {
           <Typography className = "text-black font-bold">Price range</Typography>
         </AccordionSummary>
         <div className='flex flex-col'>
-            <span className='mx-auto'>Price range: from ${value[0]} to ${value[1]}</span>
+            <span className='mx-auto'><b></b>Price range: from <b>${value[0]}</b> to <b>${value[1]}</b></span>
             <AccordionDetails className="text-black mx-auto">
                 <RangeSlider 
                     className ="mx-auto"
