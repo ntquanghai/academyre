@@ -71,10 +71,10 @@ const LessonAccordion = (props) =>{
   };
 
   return (
-    <div className = "flex flex-row border-none">
+    <div className = "flex flex-row border-none ">
       <Accordion className = {"border-none "+isChecked} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <div className = "flex flex-row w-full justify-between">
-            <AccordionSummary className="flex-grow" aria-controls="panel1d-content" id="panel1d-header">
+        <div className = "flex flex-row w-full justify-between hover:bg-gray-50">
+            <AccordionSummary  className="flex-grow" aria-controls="panel1d-content" id="panel1d-header">
                 <Typography className = "text-black my-auto">{name}</Typography>
             </AccordionSummary>
         <FormControlLabel control={<Checkbox sx={{

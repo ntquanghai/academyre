@@ -15,7 +15,7 @@ export const LessonPage = (props) => {
     return(
         <div className="flex flex-col" style = {{minHeight:"100vh"}}>
             <div className="">
-                <div className = "p-4 mb-8 text-2xl bg-black text-white"><b>Programming Languages {">"} </b> Advanced Java</div>
+                <div className = "p-4 mb-8 bg-black text-white"><b className = "text-xl">Programming Languages {">"} </b> Advanced Java</div>
             </div>
             <div className="w-3/4 mx-auto">
                 <div className = "flex flex-row">

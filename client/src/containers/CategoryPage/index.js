@@ -5,13 +5,10 @@ import { TabPanel } from "../../components/TabPanel";
 import { Rating } from "@mui/material";
 import { CategoryAccordion } from "../../components/CategoryAccordion";
 import { CategoryItem } from "../../components/CategoryAccordion/categoryItem";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { pink, grey } from '@mui/material/colors';
 
 
 export const CategoryPage = () => {
