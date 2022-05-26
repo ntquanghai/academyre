@@ -9,6 +9,34 @@ export function HpCarousel(props) {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 1536,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 1152,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          arrows: false,
+          dots: true
+        }
+      },
+    ]
   };
 
   const data = props.data;
