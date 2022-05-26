@@ -176,7 +176,7 @@ export const Homepage = () => {
   else {
     return (
       <Fragment>
-          <div className = "flex bg-cyan-200 shadow-inner py-10 px-10 w-3/4 mx-auto">
+          <div className = "flex bg-amber-200 shadow-inner py-10 px-10 w-3/4 mx-auto">
             <div className = "py-10  font-semibold  w-1/2 flex" style = {{height: "300px", fontSize: "28px", fontFamily: "'Open Sans', sans-serif"}}>
               <div className = "m-auto font-serif">
                 Welcome back, username!

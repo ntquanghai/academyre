@@ -13,10 +13,11 @@ export const CategoryItem = (props) => {
   return (
     <Link to="/courseDetail">
       <div
-        className=" bg-white m-auto w-full py-4 shadow-sm cursor-pointer hover:opacity-75 relative flex flex-row mb-4 border-b border-gray-500 "
+        className=" bg-white m-auto w-full py-4 shadow-sm cursor-pointer hover:opacity-75 relative flex flex-row mb-4 border-b  "
         style={{ width: "100%", height: "240px" }}
       >
         <img
+          className = "border "
           style={{ width: "360px", height: "100%" }}
           src={img}
         ></img>
@@ -75,7 +76,7 @@ export const CategoryItem = (props) => {
                 </div>
                 <div className="w-full">{desc}</div>
                 <div className="flex flex-row w-full mt-4">
-                  <button className="w-4/5 py-2 bg-cyan-200 border text-sm hover:opacity-75 cursor-pointer border-black">
+                  <button className="w-4/5 py-2 bg-amber-200 border text-sm hover:opacity-75 cursor-pointer border-black">
                     Add to cart
                   </button>
                   <div className="border border-black p-2 m-auto hover:opacity-75 cursor-pointer">

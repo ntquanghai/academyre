@@ -56,7 +56,7 @@ export default function SignUp() {
           <React.Fragment>
             <img
               className="mx-4 w-20 h-20"
-              src="./logo-removebg-preview.png"
+              src="\logo-removebg-preview.png"
               alt=""
             />
           </React.Fragment>

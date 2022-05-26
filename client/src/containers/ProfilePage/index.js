@@ -126,7 +126,7 @@ export const ProfilePage = () => {
                 <div className = "p-8 ">
                 <div style = {{width:"1000px"}} className = "mx-auto h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
-                        <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 !w-60">
+                        <div className = "shrink-0 border-r bg-amber-200 border-gray-500 py-8 !w-60">
                             <Avatar
                                 alt="Remy Sharp"
                                 src="\android-chrome-512x512.png"
@@ -168,7 +168,7 @@ export const ProfilePage = () => {
                             </div>
                         </div>
                         <div className = "flex-grow">
-                            <div className = "  bg-sky-100 border-b border-gray-500 p-8 text-center">
+                            <div className = "  bg-amber-100 border-b border-gray-500 p-8 text-center">
                                 <div className = " font-semibold text-3xl">Your profile</div>
                                 <div className = " font-normal text-base">View and edit your personal information here.</div>
                             </div>
@@ -221,7 +221,7 @@ export const ProfilePage = () => {
                                         <div className = "border my-8 border-gray-400"style = {{width: "400px", height: "400px"}}>
                                             <img src="\whitebg.png" />
                                         </div>
-                                        <label htmlFor="myImage" className="text-white btn p-3 border font-semibold border-blue-500 bg-blue-400 cursor-pointer hover:opacity-50">Select Image</label>
+                                        <label htmlFor="myImage" className="text-white btn p-3 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Select Image</label>
                                         <input
                                             className = "invisible"
                                             type="file"
@@ -250,7 +250,7 @@ export const ProfilePage = () => {
                                                     </div>
                                                 </ReactCrop>
                                             </div>
-                                            <label htmlFor="myCropImage" className="btn p-3 border font-semibold border-blue-300 bg-blue-200 cursor-pointer hover:opacity-50">Crop image</label>
+                                            <label htmlFor="myCropImage" className="btn p-3 border font-semibold border-amber-300 bg-amber-200 cursor-pointer hover:opacity-50">Crop image</label>
                                                 <button
                                                     className = "invisible"
                                                     id="myCropImage"
@@ -287,8 +287,8 @@ export const ProfilePage = () => {
                                     }
                                 </div>
                             </div>
-                            <div className = "ml-auto justify-end bg-blue-100 w-full h-20 border-t border-gray-500 px-8 flex">
-                                <button className=" my-auto text-white px-4 py-2 border font-semibold border-blue-500 bg-blue-400 cursor-pointer hover:opacity-50">Save</button>
+                            <div className = "ml-auto justify-end bg-amber-100 w-full h-20 border-t border-gray-500 px-8 flex">
+                                <button className=" my-auto text-white px-4 py-2 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Save</button>
                             </div>
                         </div>
                     </div>
@@ -300,7 +300,7 @@ export const ProfilePage = () => {
             return(
                 <div style = {{width:"1000px"}} className = "py-8 m-auto  h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
-                        <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 w-60">
+                        <div className = "shrink-0 border-r bg-amber-200 border-gray-500 py-8 w-60">
                             <Avatar
                                 alt="Remy Sharp"
                                 src="\android-chrome-512x512.png"
@@ -342,7 +342,7 @@ export const ProfilePage = () => {
                             </div>
                         </div>
                         <div className = "flex flex-col flex-grow">
-                            <div className = "  bg-sky-100 border-b border-gray-500 p-8 text-center">
+                            <div className = "  bg-amber-100 border-b border-gray-500 p-8 text-center">
                                 <div className = " font-semibold text-3xl">Your courses</div>
                                 <div className = " font-normal text-base">View your latest, enrolled and favourite courses here.</div>
                             </div>
@@ -358,8 +358,8 @@ export const ProfilePage = () => {
                                         <div className = "text-base "> You have no favourite course.</div>
                                 </div>
                             </div>
-                            <div className = "ml-auto mt-auto justify-end bg-blue-100 w-full h-20 border-t border-gray-500 px-8 flex">
-                                <button className="my-auto text-white px-4 py-2 border font-semibold border-blue-500 bg-blue-400 cursor-pointer hover:opacity-50">Save</button>
+                            <div className = "ml-auto mt-auto justify-end bg-amber-100 w-full h-20 border-t border-gray-500 px-8 flex">
+                                <button className="my-auto text-white px-4 py-2 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Save</button>
                             </div>
                         </div>
                     </div>
@@ -370,7 +370,7 @@ export const ProfilePage = () => {
             return(
                 <div style = {{width:"1000px"}} className = "py-8 m-auto  h-full">
                     <div className = "border border-gray-500 bg-white flex flex-row box-content">
-                        <div className = "shrink-0 border-r bg-sky-200 border-gray-500 py-8 w-60">
+                        <div className = "shrink-0 border-r bg-amber-200 border-gray-500 py-8 w-60">
                             <Avatar
                                 alt="Remy Sharp"
                                 src="\android-chrome-512x512.png"
@@ -411,7 +411,7 @@ export const ProfilePage = () => {
                             </div>
                         </div>
                         <div className = "flex flex-col flex-grow">
-                            <div className = "  bg-sky-100 border-b border-gray-500 p-8 text-center">
+                            <div className = "  bg-amber-100 border-b border-gray-500 p-8 text-center">
                                 <div className = " font-semibold text-3xl">Your account</div>
                                 <div className = " font-normal text-base">Change your password here.</div>
                             </div>                                <div className = "shrink-0 flex-grow">
@@ -452,8 +452,8 @@ export const ProfilePage = () => {
                                     /> */}
                                     </div>
                             </div>
-                            <div className = "ml-auto justify-end bg-blue-100 w-full h-20 border-t border-gray-500 px-8 flex">
-                                <button className=" my-auto text-white px-4 py-2 border font-semibold border-blue-500 bg-blue-400 cursor-pointer hover:opacity-50">Save</button>
+                            <div className = "ml-auto justify-end bg-amber-100 w-full h-20 border-t border-gray-500 px-8 flex">
+                                <button className=" my-auto text-white px-4 py-2 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Save</button>
                             </div>
                         </div>
                     </div>
