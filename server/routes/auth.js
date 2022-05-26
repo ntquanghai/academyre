@@ -1,7 +1,9 @@
 const express = require("express");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
+const authMDw = require("../middlewares/auth");
+const User = require("../models/User");
 const router = express.Router();
-
+const bcrypt = require("bcryptjs");
 const users = [
   {
     id: 1,
@@ -14,6 +16,23 @@ const users = [
     password: "abc123",
   },
 ];
+router.get("/", authMDw, async (req, res) => {
+  const id = req.id;
+  try {
+    const user = await User.findById(id).select("-password");
+    if (!user) {
+      return res.status(400).json({
+        msg: "No authorization",
+      });
+    }
+    res.json({
+      user,
+    });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
 router.post("/login", async (req, res) => {
   //Authentication
   const { username, password } = req.body;
@@ -21,34 +40,67 @@ router.post("/login", async (req, res) => {
     throw new Error("Missing credentials");
   }
   try {
-    let user = users.findOne
-  } catch (error) {
-    
-  }
-  const user = users.find(
-    (u) => u.password === password && u.username === username
-  );
-  if (!user) {
-    return res.json({
-      msg: "Username or password is not correct"
-    })
-  }
-  //Authorization
-  const token = jwt.sign({
-    username: user.username,
-    id: user.id,
-  }, process.env.JWT_SECRET_KEY,
-  { expiresIn: process.env.ACCESS_TOKEN_EXPIRE })
+    let user = users.findOne({ email });
+    if (!user) {
+      return res.status(400).json({
+        msg: "Invalid credentials",
+      });
+    }
+    const isMathcPassword = await bcrypt.compare(password, user.password);
+    if (!isMatchPassword) {
+      return res.status(400).json({
+        msg: "Invalid credentials",
+      });
+    }
+    const JWT_SECRET = process.env.JWT_SECRET_KEY;
+    const EXPIRY_TIME = +process.env.ACCESS_TOKEN_EXPRIRE_IN;
 
-  return res.json({
-    username: username,
-    accessToken: token
-  })
+    //Authorization
+
+    const token = jwt.sign(
+      {
+        id: user,
+        id,
+      },
+      JWT_SECRET,
+      { expiresIn: EXPIRY_TIME }
+    );
+    res.json({
+      token: token,
+    })
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
 });
 
-
-router.post("/register", (req, res) => {
-  
+router.post("/register", async (req, res) => {
+  try {
+    const {email, password, fullname} = req.body;
+    if (!(email && password && fullname)) {
+      throw new Error("Missing information");
+    }
+    let user = await User.findOne({email});
+    if (user) {
+      return res.status(400).json({
+        msg: "EMail is already exist",
+      })
+    }
+    const salt = await bcrypt.genSalt(10);
+    const  hashPassword = await bcrypt.hash(password, salt);
+    user = new User({
+      fullname,
+      email,
+      password: hashPassword,
+    })
+    await user.save();
+    res.status(201).json({
+      msg: "Create successfully"
+    })
+  } catch (error) {
+    res.json({
+      message: error.message
+    })
+  }
 });
 
 module.exports = router;

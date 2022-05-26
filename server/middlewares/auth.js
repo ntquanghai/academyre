@@ -1,15 +1,17 @@
 const jwt = require("jsonwebtoken");
-const auth = (req, res, next) => {
-  const token = req.headers["x-auth-token"];
-  console.log("Token", token);
-  if (!token) {
-    return res.status(401).send("User must login first");
-  }
+
+const authMdw = (req, res, next) => {
   try {
-    jwt.verify(token, "ACADEMYRE_PROJECT");
+    const token = req.header("Authorization");
+    if (!token) {
+      return res.status(403).send("Access denied.");
+    }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).send("token invalid");
+    res.status(400).send("Invalid token")
   }
-};
-module.exports = auth;
+}
+
+module.exports = authMdw;
