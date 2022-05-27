@@ -1,7 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const authMDw = require("../middlewares/auth");
-const User = require("../models/User");
+const UserModel = require("../models/User");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const users = [
@@ -19,7 +19,7 @@ const users = [
 router.get("/", authMDw, async (req, res) => {
   const id = req.id;
   try {
-    const user = await User.findById(id).select("-password");
+    const user = await UserModel.findById(id).select("-password");
     if (!user) {
       return res.status(400).json({
         msg: "No authorization",
@@ -79,20 +79,20 @@ router.post("/register", async (req, res) => {
     if (!(email && password && fullname)) {
       throw new Error("Missing information");
     }
-    let user = await User.findOne({email});
+    let user = await UserModel.findOne({email});
     if (user) {
       return res.status(400).json({
-        msg: "EMail is already exist",
+        msg: "Email is already exist",
       })
     }
     const salt = await bcrypt.genSalt(10);
     const  hashPassword = await bcrypt.hash(password, salt);
-    user = new User({
+    user = {
       fullname,
       email,
       password: hashPassword,
-    })
-    await user.save();
+    }
+    await UserModel.insertMany(user)
     res.status(201).json({
       msg: "Create successfully"
     })
