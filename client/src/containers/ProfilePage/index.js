@@ -256,12 +256,12 @@ export const ProfilePage = () => {
                                                 </div>
                                                 <div className ="mx-auto ">
 
-                                                <label htmlFor="myCropImage" className=" text-white btn p-3 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Crop image</label>
-                                                    <button
-                                                        className = "invisible"
-                                                        id="myCropImage"
-                                                        onClick={() => cropImageNow(imgRef.current,completedCrop)}
-                                                    />
+                                                    <label htmlFor="myCropImage" className=" text-white btn p-3 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Crop image</label>
+                                                        <button
+                                                            className = "invisible"
+                                                            id="myCropImage"
+                                                            onClick={() => cropImageNow(imgRef.current,completedCrop)}
+                                                        />
                                                 </div>
                                             </div>
             
@@ -286,7 +286,7 @@ export const ProfilePage = () => {
                                                         </Backdrop>
                                                     </div>
                                                 :
-                                                <img style = {{maxWidth: "200px", maxHeight:"200px"}} className = "border border-black" src={output} />
+                                                <img style = {{maxWidth: "200px", maxHeight:"200px"}} className = "border mx-auto border-black" src={output} />
                                                 }
                                             </div>
                                         }
@@ -556,7 +556,7 @@ export const ProfilePage = () => {
                                         <div className = "my-8">
                                         {!output
                                         ?
-                                            <div className = "px-8 pb-8">
+                                            <div className = "px-8 pb-8 flex flex-col">
                                                 <div className = "my-8">
                                                     <ReactCrop 
                                                         crop={crop}
@@ -567,16 +567,19 @@ export const ProfilePage = () => {
                                                         minHeight={200}
                                                         >
                                                         <div>
-                                                            <img ref = {imgRef} onLoad = {onImageLoad} style = {{maxWidth: "400px", maxHeight:"400px"}} className = "border border-black" src={imgSrc}/>
+                                                            <img ref = {imgRef} onLoad = {onImageLoad} style = {{maxWidth: "350px", maxHeight:"350px"}} className = "border mx-auto border-black" src={imgSrc}/>
                                                         </div>
                                                     </ReactCrop>
                                                 </div>
-                                                <label htmlFor="myCropImage" className="btn p-3 border font-semibold border-amber-300 bg-amber-200 cursor-pointer hover:opacity-50">Crop image</label>
-                                                    <button
-                                                        className = "invisible"
-                                                        id="myCropImage"
-                                                        onClick={() => cropImageNow(imgRef.current,completedCrop)}
-                                                    />
+                                                <div className ="mx-auto ">
+
+                                                    <label htmlFor="myCropImage" className=" text-white btn p-3 border font-semibold border-amber-500 bg-amber-400 cursor-pointer hover:opacity-50">Crop image</label>
+                                                        <button
+                                                            className = "invisible"
+                                                            id="myCropImage"
+                                                            onClick={() => cropImageNow(imgRef.current,completedCrop)}
+                                                        />
+                                                </div>
                                             </div>
             
                                         :
@@ -591,7 +594,7 @@ export const ProfilePage = () => {
                                                             return () => {
                                                                 clearTimeout(timeId)
                                                             }
-                                                        }} ref = {imgRef} style = {{maxWidth: "400px", maxHeight:"400px"}} className = "border border-black" src={imgSrc}/>
+                                                        }} ref = {imgRef} style = {{maxWidth: "350px", maxHeight:"350px"}} className = "border mx-auto border-black" src={imgSrc}/>
                                                         <Backdrop
                                                             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                                                             open={!showLoading}
@@ -600,7 +603,7 @@ export const ProfilePage = () => {
                                                         </Backdrop>
                                                     </div>
                                                 :
-                                                <img style = {{maxWidth: "200px", maxHeight:"200px"}} className = "border border-black" src={output} />
+                                                <img style = {{maxWidth: "200px", maxHeight:"200px"}} className = "border border-black mx-auto" src={output} />
                                                 }
                                             </div>
                                         }
