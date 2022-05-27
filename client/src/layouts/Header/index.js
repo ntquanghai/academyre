@@ -41,7 +41,6 @@ export default function Header() {
   };
 
 
-
   const isLoggedIn = true;
 
   const handleDrawerToggle = () => {
@@ -54,14 +53,64 @@ export default function Header() {
 
   const drawer = (
     <div>
+      {!isLoggedIn
+      ?
+     <div>
+        <Toolbar>
+      <div className = "flex flex-col py-4">
+        <div className = "font-semibold hover:opacity-80">
+          Sign in
+        </div>
+        <div className = "font-semibold hover:opacity-80">
+          Sign up
+        </div>
+      </div>
+    </Toolbar>
+    <Divider />
+      <div className = "font-semibold px-4 pt-4">
+        Categories
+      </div>
+        <List className = "px-4">
+          {['Programming Languages', 'Engineering', 'Mathematics', 'Software Engineering','Game Development','Web Development'].map((text, index) => (
+            <div className = "flex flex-col">
+              <Link to= {"category/"+queryName(text)}>
+                {text}
+              </Link>
+            </div>
+          ))}
+        </List>
+    <Divider />
+     </div>
+    :
+    <div className = "flex flex-col">
       <Toolbar>
         <div className = "flex flex-col py-4">
           <div className = "font-semibold hover:opacity-80">
-            Sign in
+            Account
           </div>
-          <div className = "font-semibold hover:opacity-80">
-            Sign up
+          <div className = "flex flex-row mt-2">
+          <Avatar 
+              className = "hover:opacity-80 cursor-pointer mr-2"
+              sx={{ bgcolor: deepOrange[500]  }}>N</Avatar>
+            <div className = "font-semibold my-auto">
+              Username
+            </div>
           </div>
+          <Link className = "mt-2" to = "profile/edit-profile">
+            <div>
+              Edit profile
+            </div>
+          </Link>
+          <Link className = "" to = "profile/edit-profile">
+            <div>
+              Your courses
+            </div>
+          </Link>
+          <Link className = "" to = "profile/edit-profile">
+            <div>
+              Account settings
+            </div>
+          </Link>
         </div>
       </Toolbar>
       <Divider />
@@ -78,13 +127,13 @@ export default function Header() {
             ))}
           </List>
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <div>
-            {text}
-          </div>
-        ))}
-      </List> */}
+      <div className = "mt-2 ml-4 font-bold text-lg text-red-600">
+        Log out
+      </div>
+
+    </div>
+      }
+      
     </div>
   );
 
