@@ -38,10 +38,19 @@ const theme = createTheme();
 export default function Login() {
   const { state, dispatch } = useContext(AuthContext);
   const { loading, error, isAuthenticated } = state;
-  const onLogin = async (values) => {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const onChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const onLogin = async (e) => {
+    e.preventDefault();
     const submitValues = {
-      email: values.email,
-      password: values.password,
+      email: email,
+      password: password,
     };
     console.log(submitValues);
     login(submitValues, dispatch);
@@ -95,6 +104,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={onChangeEmail}
+              value={email}
             />
             <TextField
               margin="normal"
@@ -104,6 +115,8 @@ export default function Login() {
               label="Password"
               type="password"
               id="password"
+              onChange={onChangePassword}
+              value={password}
               autoComplete="current-password"
             />
             <FormControlLabel

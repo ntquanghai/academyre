@@ -28,7 +28,7 @@ router.post("/login", async (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;
   try {
-    let user = UserModel.findOne( email );
+    let user = await UserModel.findOne({ email });
     if (!user) {
       return res.status(400).json({
         msg: "Invalid credentials",
@@ -48,7 +48,6 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       {
         id: user,
-        id,
       },
       JWT_SECRET,
       { expiresIn: EXPIRY_TIME }
