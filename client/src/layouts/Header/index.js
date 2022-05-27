@@ -41,7 +41,7 @@ export default function Header() {
   };
 
 
-  const isLoggedIn = localStorage.getItem("isAuth");
+  const isLoggedIn = sessionStorage.getItem("isAuth");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -198,7 +198,7 @@ export default function Header() {
                     <Link to = "profile/account">
                       <MenuItem className = "text-sm" onClick={handleClose}>Account settings</MenuItem>
                     </Link>
-                      <MenuItem className = "text-red-600 text-sm" onClick = {()=>localStorage.removeItem("isAuth")}>Logout</MenuItem>
+                      <MenuItem className = "text-red-600 text-sm" onClick = {()=>sessionStorage.removeItem("isAuth")}>Logout</MenuItem>
                   </div>
                 </Menu>
               </div>

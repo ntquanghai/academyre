@@ -64,7 +64,7 @@ export default function Login() {
 
   if (isAuthenticated) {
     console.log("hello");
-    localStorage.setItem("isAuth",isAuthenticated)
+    sessionStorage.setItem("isAuth",isAuthenticated)
     return <Navigate to="/" />;
   }
 
