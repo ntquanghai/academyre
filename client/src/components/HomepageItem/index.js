@@ -173,7 +173,7 @@ export const HpItem = (props) => {
       >
         <img
           className="mb-2"
-          style={{ width: "100%", height: "150px" }}
+          style={{ width: "100%", height: "180px" }}
           src={img}
         ></img>
         <div className="font-semibold text-lg truncate">{courseName}</div>

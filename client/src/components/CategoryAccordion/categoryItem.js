@@ -131,7 +131,7 @@ export const CategoryItem = (props) => {
               Last updated: <b>24/02/2022</b> 
               </div>
               <div className = "flex flex-row">
-                <div className = "mt-1 text-xs text-gray-500">
+                <div className = " text-xs text-gray-500">
                 34 hours 
                 </div>
                 <div className = "mx-1 text-xs text-gray-500">•</div>
