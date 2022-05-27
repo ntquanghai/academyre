@@ -12,14 +12,16 @@ import { ProfilePage } from "./containers/ProfilePage";
 import { NotFound } from "./containers/NotFound";
 import { CategoryPage } from "./containers/CategoryPage";
 import { LessonPage } from "./containers/LessonPage";
-
+import AuthState from "./context/auth/AuthState";
+import PrivateRoute from "./components/PrivateRoute"
 function App() {
   return (
     <Fragment>
+    <AuthState>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
@@ -38,6 +40,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      </AuthState>
     </Fragment>
   );
 }

@@ -14,6 +14,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/auth/AuthContext"
 import { login } from "../../context/auth/AuthReducer";
 import { Navigate } from "react-router-dom";
+import { FormControl } from "@mui/material";
 export function Copyright(props) {
   return (
     <Typography
@@ -23,7 +24,7 @@ export function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="/">
         Academyre
       </Link>{" "}
       {new Date().getFullYear()}
@@ -39,19 +40,24 @@ export default function Login() {
   const { loading, error, isAuthenticated } = state;
   const onLogin = async (values) => {
     const submitValues = {
-      password: values.password,
       email: values.email,
+      password: values.password,
     };
+    console.log(submitValues);
     login(submitValues, dispatch);
   };
+
   React.useEffect(() => {
     if (error) {
       console.log(error);
     }
   }, [error]);
+
   if (isAuthenticated) {
+    console.log("hello");
     return <Navigate to="/" />;
   }
+
   return (
     <ThemeProvider theme={theme}>
       <Container className="" component="main" maxWidth="xs">
@@ -74,7 +80,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Welcome to Academyre
           </Typography>
-          <Box
+          <FormControl
             component="form"
             onSubmit={onLogin}
             noValidate
@@ -109,7 +115,6 @@ export default function Login() {
               className="bg-blue-400 font-bold my-2"
               variant="contained"
               fullWidth
-              loading={loading}
             >
               Sign In
             </ButtonPrimary>
@@ -125,7 +130,7 @@ export default function Login() {
                 </Link>
               </Grid>
             </Grid>
-          </Box>
+          </FormControl>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>

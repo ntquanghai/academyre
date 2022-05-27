@@ -116,7 +116,7 @@ export const fetchUserData = async (dispatch) => {
   } catch (e) {
     dispatch({
       type: FETCH_USER_ERROR,
-      payload: e.response.data.msg,
+      payload: e.response.data,
     });
   }
 };

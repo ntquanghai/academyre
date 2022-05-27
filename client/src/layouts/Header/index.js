@@ -76,7 +76,7 @@ export default function Header() {
     return (
       <div>
         <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white">      
-        <Link to="/">
+        <Link to="Home">
           <img
             className="w-20 h-20"
             src="\logo-removebg-preview.png"
