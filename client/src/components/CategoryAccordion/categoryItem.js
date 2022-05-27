@@ -8,7 +8,7 @@ import { useMediaQuery } from "../../hooks/getScreenSize";
 
 
 export const CategoryItem = (props) => {
-  const { img, courseName, desc, author, ratings, raters, category, cost } =props;
+  const { img, courseName, desc, author, ratings, raters, category, cost } = props;
   const viewport = useMediaQuery();
   const { width, height } = viewport;
 

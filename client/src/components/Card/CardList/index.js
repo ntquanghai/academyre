@@ -189,7 +189,7 @@ export const ProductCardList = (props) => {
       {_DATA
         ? _DATA
             .currentData()
-            .map((product, index) => <CategoryItem key={index} />)
+            .map((product, index) => <CategoryItem key={index} img={product.img} courseName = {product.name} desc={product.description} author ={product.author} ratings = {product.ratings} cost = {product.cost}/>)
         : "Can't not find this keyword"}
       <Stack spacing={2}>
         <Pagination
@@ -198,7 +198,7 @@ export const ProductCardList = (props) => {
           page={page}
           onChange={changeHandler}
           color="primary"
-          className="mx-auto"
+          className="mx-auto mb-4"
         />
       </Stack>
     </Fragment>
