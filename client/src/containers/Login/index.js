@@ -10,6 +10,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ButtonPrimary from "../../components/Button";
+import { useContext } from "react";
+import AuthContext from "../../context/auth/AuthContext"
+import { login } from "../../context/auth/AuthReducer";
+import { Navigate } from "react-router-dom";
+import { FormControl } from "@mui/material";
 export function Copyright(props) {
   return (
     <Typography
@@ -19,7 +24,7 @@ export function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="/">
         Academyre
       </Link>{" "}
       {new Date().getFullYear()}
@@ -31,14 +36,36 @@ export function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const { state, dispatch } = useContext(AuthContext);
+  const { loading, error, isAuthenticated } = state;
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const onChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const onLogin = async (e) => {
+    e.preventDefault();
+    const submitValues = {
+      email: email,
+      password: password,
+    };
+    console.log(submitValues);
+    login(submitValues, dispatch);
   };
+
+  React.useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+
+  if (isAuthenticated) {
+    console.log("hello");
+    return <Navigate to="/" />;
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -62,9 +89,9 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Welcome to Academyre
           </Typography>
-          <Box
+          <FormControl
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={onLogin}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -77,6 +104,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={onChangeEmail}
+              value={email}
             />
             <TextField
               margin="normal"
@@ -86,6 +115,8 @@ export default function Login() {
               label="Password"
               type="password"
               id="password"
+              onChange={onChangePassword}
+              value={password}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -112,7 +143,7 @@ export default function Login() {
                 </Link>
               </Grid>
             </Grid>
-          </Box>
+          </FormControl>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>

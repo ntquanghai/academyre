@@ -34,7 +34,7 @@ const CourseSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  dateUpload: {
+  dateUploaded: {
     type: Date,
     required: true,
   }

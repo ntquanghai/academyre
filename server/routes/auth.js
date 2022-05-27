@@ -1,25 +1,15 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const authMDw = require("../middlewares/auth");
-const User = require("../models/User");
+const UserModel = require("../models/User");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const users = [
-  {
-    id: 1,
-    username: "tung",
-    password: "abc123",
-  },
-  {
-    id: 2,
-    username: "hoaianh",
-    password: "abc123",
-  },
-];
+
 router.get("/", authMDw, async (req, res) => {
   const id = req.id;
+  console.log("success");
   try {
-    const user = await User.findById(id).select("-password");
+    const user = await UserModel.findById(id).select("+password");
     if (!user) {
       return res.status(400).json({
         msg: "No authorization",
@@ -35,18 +25,16 @@ router.get("/", authMDw, async (req, res) => {
 
 router.post("/login", async (req, res) => {
   //Authentication
-  const { username, password } = req.body;
-  if (!username || !password) {
-    throw new Error("Missing credentials");
-  }
+  console.log(req.body);
+  const { email, password } = req.body;
   try {
-    let user = users.findOne({ email });
+    let user = await UserModel.findOne({ email });
     if (!user) {
       return res.status(400).json({
         msg: "Invalid credentials",
       });
     }
-    const isMathcPassword = await bcrypt.compare(password, user.password);
+    const isMatchPassword = await bcrypt.compare(password, user.password);
     if (!isMatchPassword) {
       return res.status(400).json({
         msg: "Invalid credentials",
@@ -60,14 +48,13 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       {
         id: user,
-        id,
       },
       JWT_SECRET,
       { expiresIn: EXPIRY_TIME }
     );
     res.json({
       token: token,
-    })
+    });
   } catch (error) {
     return res.status(500).send(error.message);
   }
@@ -75,31 +62,31 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const {email, password, fullname} = req.body;
+    const { email, password, fullname } = req.body;
     if (!(email && password && fullname)) {
       throw new Error("Missing information");
     }
-    let user = await User.findOne({email});
+    let user = await UserModel.findOne({ email });
     if (user) {
       return res.status(400).json({
-        msg: "EMail is already exist",
-      })
+        msg: "Email is already exist",
+      });
     }
     const salt = await bcrypt.genSalt(10);
-    const  hashPassword = await bcrypt.hash(password, salt);
-    user = new User({
+    const hashPassword = await bcrypt.hash(password, salt);
+    user = {
       fullname,
       email,
       password: hashPassword,
-    })
-    await user.save();
+    };
+    await UserModel.insertMany(user);
     res.status(201).json({
-      msg: "Create successfully"
-    })
+      msg: "Create successfully",
+    });
   } catch (error) {
     res.json({
-      message: error.message
-    })
+      message: error.message,
+    });
   }
 });
 
