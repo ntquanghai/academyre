@@ -10,6 +10,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ButtonPrimary from "../../components/Button";
+import { useContext } from "react";
+import AuthContext from "../../context/auth/AuthContext"
+import { login } from "../../context/auth/AuthReducer";
+import { Navigate } from "react-router-dom";
 export function Copyright(props) {
   return (
     <Typography
@@ -31,15 +35,23 @@ export function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const { state, dispatch } = useContext(AuthContext);
+  const { loading, error, isAuthenticated } = state;
+  const onLogin = async (values) => {
+    const submitValues = {
+      password: values.password,
+      email: values.email,
+    };
+    login(submitValues, dispatch);
   };
-
+  React.useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+  if (isAuthenticated) {
+    return <Navigate to="/" />;
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container className="" component="main" maxWidth="xs">
@@ -64,7 +76,7 @@ export default function Login() {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            onSubmit={onLogin}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -97,6 +109,7 @@ export default function Login() {
               className="bg-blue-400 font-bold my-2"
               variant="contained"
               fullWidth
+              loading={loading}
             >
               Sign In
             </ButtonPrimary>

@@ -1,7 +1,5 @@
 import React from "react";
-import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { Rating } from "@mui/material";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
