@@ -64,6 +64,7 @@ export default function Login() {
 
   if (isAuthenticated) {
     console.log("hello");
+    localStorage.setItem("isAuth",isAuthenticated)
     return <Navigate to="/" />;
   }
 
@@ -138,7 +139,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link className = "ml-4" href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

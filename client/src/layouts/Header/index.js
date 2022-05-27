@@ -41,7 +41,7 @@ export default function Header() {
   };
 
 
-  const isLoggedIn = true;
+  const isLoggedIn = localStorage.getItem("isAuth");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -127,7 +127,7 @@ export default function Header() {
             ))}
           </List>
       <Divider />
-      <div className = "mt-2 ml-4 font-bold text-lg text-red-600">
+      <div className = "mt-2 ml-4 font-bold text-lg text-red-500">
         Log out
       </div>
 

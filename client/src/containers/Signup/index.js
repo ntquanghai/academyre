@@ -102,7 +102,7 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
                   name="fullname"
@@ -154,9 +154,9 @@ export default function SignUp() {
             >
               Sign Up
             </ButtonPrimary>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center" > 
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href="/login" variant="body2" >
                   Already have an account? Sign in
                 </Link>
               </Grid>
