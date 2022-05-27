@@ -10,6 +10,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ButtonPrimary from "../../components/Button";
+import AuthContext from "../../context/auth/AuthContext";
+import { signup } from "../../context/auth/AuthReducer";
+import { FormControl } from "@mui/material";
+import { Navigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -32,14 +36,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  const [fullName, setFullName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const { state, dispatch } = React.useContext(AuthContext);
+  const { loading, error, isAuthenticated } = state;
+
+  const onChangeFullname = (e) => {
+    setFullName(fullName);
+  };
+  const onChangeEmail = (e) => {
+    setEmail(email);
+  };
+  const onChangePassword = (e) => {
+    setPassword(password);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const submitValues = {
+      fullName: fullName,
+      email: email,
+      password: password,
+    };
+    console.log(submitValues);
+    signup(submitValues, dispatch);
   };
+
+  React.useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+
+  if (isAuthenticated) {
+    console.log("hello");
+    return <Navigate to="/" />;
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,7 +95,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
+          <FormControl
             component="form"
             noValidate
             onSubmit={handleSubmit}
@@ -73,22 +105,13 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="fullname"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="fullname"
+                  label="Full Name"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  onChange={onChangeFullname}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -99,6 +122,7 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={onChangeEmail}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -110,6 +134,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={onChangePassword}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -136,7 +161,7 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
-          </Box>
+          </FormControl>
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
