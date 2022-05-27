@@ -20,12 +20,29 @@ import { ListItem } from "@mui/material";
 import { ListItemButton } from "@mui/material";
 import { ListItemText } from "@mui/material";
 import { ListItemIcon } from "@mui/material"; 
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 
 export default function Header() {
   const viewport = useMediaQuery();
   const { width, height } = viewport;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
+  const isLoggedIn = true;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -54,9 +71,9 @@ export default function Header() {
           <List className = "px-4">
             {['Programming Languages', 'Engineering', 'Mathematics', 'Software Engineering','Game Development','Web Development'].map((text, index) => (
               <div className = "flex flex-col">
-                <a href= {"category/"+queryName(text)}>
+                <Link to= {"category/"+queryName(text)}>
                   {text}
-                </a>
+                </Link>
               </div>
             ))}
           </List>
@@ -75,43 +92,90 @@ export default function Header() {
   if(width >= 800) {
     return (
       <div>
-        <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white">      
-        <Link to="/">
-          <img
-            className="w-20 h-20"
-            src="\logo-removebg-preview.png"
-            alt=""
-          />
-        </Link>
-        {/* <Dropdown/> */}
-        <SearchField />
-        <div className="flex ml-auto space-x-4">
-          <Link to="/login">
-            <button className = "py-2 px-4 font-bold border-black border hover:opacity-50 text-sm">Log in</button>
-          </Link>
-          <Link to="/signup">
-          <button className = "py-2 px-4 font-bold bg-black text-white border hover:opacity-50 text-sm">Sign up</button>
-          </Link>
-        </div>
-      </Box>
-      <HeaderCategoryBar/>
-      </div>
-        
+      <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white">      
+      <Link to="/">
+        <img
+          className="w-20 h-20"
+          src="\logo-removebg-preview.png"
+          alt=""
+        />
+      </Link>
+      <SearchField />
+      {!isLoggedIn
+      ?
+          <div className="flex ml-auto space-x-4">
+            <Link to="/login">
+              <button className = "py-2 px-4 font-bold border-black border hover:opacity-50 text-sm">Log in</button>
+            </Link>
+            <Link to="/signup">
+            <button className = "py-2 px-4 font-bold bg-black text-white border hover:opacity-50 text-sm">Sign up</button>
+            </Link>
+          </div>
+      :
+            <div className="flex ml-auto px-10 space-x-4">
+              <div>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClick}
+                >
+                  <Avatar 
+               
+                    className = "hover:opacity-80 cursor-pointer"
+                    sx={{ bgcolor: deepOrange[500]  }}>N</Avatar>
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <div className ="px-10 py-4">
+                  Welcome, <b>username</b>
+                  </div>
+                  <Divider/>
+                  <div className = "mt-2 ">
+                    <Link to = "/profile/edit-profile">
+                      <MenuItem className = "text-sm" onClick={handleClose}>Edit profile</MenuItem>
+                    </Link>
+                    <Link to = "profile/courses">
+                      <MenuItem className = "text-sm" onClick={handleClose}>My courses</MenuItem>
+                    </Link>
+                    <Link to = "profile/account">
+                      <MenuItem className = "text-sm" onClick={handleClose}>Account settings</MenuItem>
+                    </Link>
+                      <MenuItem className = "text-red-600 text-sm" onClick={handleClose}>Logout</MenuItem>
+                  </div>
+                </Menu>
+              </div>
+            </div>
+            
+      }      
+    </Box>
+    <HeaderCategoryBar/>
+    </div>
     );
   }
   else {
     return (
       <div>
-        <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white">   
+        <Box className="w-full flex items-center px-4 border-b border-gray-300 bg-white h-20">   
         <MenuIcon className = "cursor-pointer hover:opacity-75" onClick = {handleDrawerToggle}></MenuIcon>
-        <div className = "w-full">
-          <Link to="/">
-            <img
-              className="w-20 h-20 mx-auto"
-              src="\logo-removebg-preview.png"
-              alt=""
-            />
-          </Link>
+        <div className = "absolute left-1/2 -translate-x-1/2 h-20">
+          <div className="mx-auto">
+            <Link to="/">
+              <img
+                className="w-20 h-20 "
+                src="\logo-removebg-preview.png"
+                alt=""
+              />
+            </Link>
+          </div>
         </div>
         <Drawer
           variant="temporary"

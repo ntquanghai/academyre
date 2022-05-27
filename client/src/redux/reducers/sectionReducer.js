@@ -43,6 +43,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case TOGGLE_FINISHED_SESSION:
       // Logic update todo status

@@ -2,6 +2,7 @@ import React, {useState, useEffect, Fragment} from "react";
 import Header from "../../layouts/Header";
 import { HpCarousel } from "../../components/HomepageCarousel";
 import { useMediaQuery } from "../../hooks/getScreenSize";
+import { useSelector } from "react-redux";
 
 export const Homepage = () => {
   const [hpData, sethpData] = useState([])
@@ -26,7 +27,8 @@ export const Homepage = () => {
                   available: null,
                   duration: null,
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #2",
@@ -45,7 +47,8 @@ export const Homepage = () => {
                   available: null,
                   duration: null,
                 }
-              }
+              },
+              favourite: false
               
           },
           {
@@ -65,7 +68,8 @@ export const Homepage = () => {
                   available: true,
                   duration: new Date(2022,4,13),
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #4",
@@ -84,7 +88,8 @@ export const Homepage = () => {
                   available: null,
                   duration: null,
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #5",
@@ -103,7 +108,8 @@ export const Homepage = () => {
                   available: null,
                   duration: null,
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #6",
@@ -122,7 +128,8 @@ export const Homepage = () => {
                   available: null,
                   duration: null,
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #7",
@@ -141,7 +148,8 @@ export const Homepage = () => {
                   available: true,
                   duration: "29/11/2022",
                 }
-              }
+              },
+              favourite: false
           },
           {
               name: "Random Name #8",
@@ -160,7 +168,8 @@ export const Homepage = () => {
                   available: true,
                   duration: new Date(2022,11,29),
                 }
-              }
+              },
+              favourite: false
           }
         ]
       )
@@ -170,6 +179,7 @@ export const Homepage = () => {
     },
     []
   )
+  const { todos } = useSelector((state) => state.fav);
 
   const viewport = useMediaQuery();
   const { width, height } = viewport;
@@ -232,9 +242,12 @@ export const Homepage = () => {
                       <div className = "font-semibold text-xl mb-16">
                         {data}
                       <div className = "mt-4 font-normal text-base">
-                        <HpCarousel
-                          data = {hpData}
-                        ></HpCarousel>
+                        {todos &&
+                            <HpCarousel
+                            data = {todos}
+                          ></HpCarousel>
+                        }
+                        
                       </div>
                       </div>
                     )
@@ -270,7 +283,7 @@ export const Homepage = () => {
                     {data}
                   <div className = "mt-4 font-normal text-base">
                     <HpCarousel
-                      data = {hpData}
+                      data = {todos}
                     ></HpCarousel>
                   </div>
                   </div>

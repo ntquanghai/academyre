@@ -6,6 +6,9 @@ import { Rating } from "@mui/material";
 import {Link} from "react-router-dom"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useMediaQuery } from "../../hooks/getScreenSize";
+import { useDispatch } from "react-redux";
+import { TOGGLE_FAVOURITE_COURSE } from "../../redux/type";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 export const HpPopup = styled(({ className, ...props }) => (
@@ -73,34 +76,34 @@ export const returnCost = (costObj) => {
 
 export const HpItem = (props) => { 
   // TODO: #2 update the detail @ntquanghai
-  const { img, courseName, desc, author, key, ratings, raters, category, cost } = props;
+  const { img, courseName, desc, author, key, ratings, raters, category, cost, id } = props;
+
   const viewport = useMediaQuery();
   const { width, height } = viewport;
+  
+  const { courseData } = props;
+  const { favourite, name } = courseData;
+  const dispatch = useDispatch();
 
-  return (
-    <Link to="/courseDetail">
-    <div
-      className=" bg-white m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative "
-      style={{ width: "320px", height: "300px" }}
-      key={key}
-    >
-      <img
-        className="mb-2"
-        style={{ width: "100%", height: "150px" }}
-        src={img}
-      ></img>
-      <div className="font-semibold text-lg truncate">{courseName}</div>
-      <div className="text-xs text-gray-700 mb-1">{category}</div>
-      <div className="flex flex-row">
-        <div className = "text-sm mr-1 font-semibold text-yellow-600">
-          {ratings.score} 
-        </div>
-        <Rating sx = {{color:"rgb(245 158 11)"}} name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly size="small"/>
-        <div className = "text-sm mr-1 text-gray-500"><p/>({ratings.raters})</div>
-      </div>
-      <div className = "text-sm">{returnCost(cost)}</div>
-      {width>=800
-        ?
+  const onCheck = (e) => {
+    e.preventDefault()
+    const action = {
+      payload: id,
+      type: TOGGLE_FAVOURITE_COURSE
+    }
+    dispatch(action)
+  }
+
+  if(width>=800) {
+
+    return (
+      <div>
+      <Link to="/courseDetail" >
+        <div
+          className=" bg-white m-auto p-4 shadow-sm cursor-pointer hover:opacity-75 relative "
+          style={{ width: "320px", height: "300px" }}
+          key={key}
+        >
           <HpPopup
           placement="right-start"
           title={
@@ -115,10 +118,20 @@ export const HpItem = (props) => {
                 <div className = "flex flex-row w-full mt-4">
                   <button className="w-4/5 py-2 bg-amber-200 border text-sm hover:opacity-75 cursor-pointer border-black">Add to cart</button>
                   <div className = "border border-black p-2 m-auto hover:opacity-75 cursor-pointer">
-                    <FavoriteBorderIcon
+                    {favourite
+                      ?
+                      <FavoriteIcon
+                      fontSize="inherit"
+                      style={{ fontSize: "24px", margin: "auto", color:"red"}}
+                      onClick = {(e)=>{onCheck(e)}}
+                      />
+                      :
+                      <FavoriteIcon
                       fontSize="inherit"
                       style={{ fontSize: "24px", margin: "auto"}}
+                      onClick = {(e)=>{onCheck(e)}}
                     />
+                    }
                   </div>
                 </div> 
               </div>
@@ -127,10 +140,55 @@ export const HpItem = (props) => {
           >
             <Button className="w-full h-full absolute top-0 left-0"></Button>
           </HpPopup>
-        :
-          <div></div>
-        }
-    </div>
-    </Link>
-  );
+          <img
+            className="mb-2"
+            style={{ width: "100%", height: "150px" }}
+            src={img}
+            
+          ></img>
+          <div className="font-semibold text-lg truncate">{courseName}</div>
+          <div className="text-xs text-gray-700 mb-1">{category}</div>
+          <div className="flex flex-row">
+            <div className = "text-sm mr-1 font-semibold text-yellow-600">
+              {ratings.score} 
+            </div>
+            <Rating sx = {{color:"rgb(245 158 11)"}} name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly size="small"/>
+            <div className = "text-sm mr-1 text-gray-500"><p/>({ratings.raters})</div>
+          </div>
+          <div className = "text-sm">{returnCost(cost)}</div>
+        </div>
+      </Link>
+      
+
+      </div>
+    );
+  }
+  else {
+    return (
+      <Link to="/courseDetail">
+      <div
+        className=" bg-white m-auto shadow-sm cursor-pointer hover:opacity-75 relative "
+        style={{ width: "320px", height: "300px" }}
+        key={key}
+      >
+        <img
+          className="mb-2"
+          style={{ width: "100%", height: "150px" }}
+          src={img}
+        ></img>
+        <div className="font-semibold text-lg truncate">{courseName}</div>
+        <div className="text-xs text-gray-700 mb-1">{category}</div>
+        <div className="flex flex-row">
+          <div className = "text-sm mr-1 font-semibold text-yellow-600">
+            {ratings.score} 
+          </div>
+          <Rating sx = {{color:"rgb(245 158 11)"}} name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly size="small"/>
+          <div className = "text-sm mr-1 text-gray-500"><p/>({ratings.raters})</div>
+        </div>
+        <div className = "text-sm">{returnCost(cost)}</div>
+        
+      </div>
+      </Link>
+    );
+  }
 };

@@ -18,13 +18,13 @@ export const TabPanel = () => {
                     {value == "Most popular"
                         ?
                         <div className = "h-full inline-block border-b-2 border-black mr-4">
-                            <button className="text-xs font-semibold ">
+                            <button className=" font-semibold ">
                                 Most popular
                             </button>
                         </div>
                         :
                         <div className = "h-full inline-block">
-                            <button className="text-xs font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("Most popular")}>
+                            <button className=" font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("Most popular")}>
                                 Most popular
                             </button>
                         </div>
@@ -32,13 +32,13 @@ export const TabPanel = () => {
                     {value == "What's new"
                         ?
                         <div className = "h-full inline-block border-b-2 border-black mr-4">
-                            <button className="text-xs font-semibold">
+                            <button className=" font-semibold">
                                 What's new
                             </button>
                         </div>
                         :
                         <div className = "h-full inline-block">
-                            <button className="text-xs font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("What's new")}>
+                            <button className=" font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("What's new")}>
                                 What's new
                             </button>
                         </div>
@@ -46,13 +46,13 @@ export const TabPanel = () => {
                     {value == "Highest Rated"
                         ?
                         <div className = "h-full inline-block border-b-2 border-black mr-4">
-                            <button className="text-xs font-semibold">
+                            <button className=" font-semibold">
                             Highest Rated
                             </button>
                         </div>
                         :
                         <div className = "h-full inline-block">
-                            <button className="text-xs font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("Highest Rated")}>
+                            <button className="font-semibold hover:text-black text-gray-500 mr-4" onClick = {()=>handleChange("Highest Rated")}>
                                 Highest Rated
                             </button>
                         </div>

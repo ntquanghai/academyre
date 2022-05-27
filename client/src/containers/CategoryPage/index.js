@@ -26,8 +26,7 @@ import { Checkbox } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { pink, grey } from '@mui/material/colors';
 import RangeSlider from "../../components/CategoryAccordion/slider";
-
-
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 
 export const CategoryPage = () => {
@@ -52,7 +51,7 @@ export const CategoryPage = () => {
       (
         <div>
           <Toolbar>
-            <div className = "flex flex-col py-4">
+            <div className = "flex flex-col py-4 font-semibold">
                 Filters
             </div>
           </Toolbar>
@@ -150,8 +149,8 @@ export const CategoryPage = () => {
           <Divider />
           <div className = "p-4">
           <Typography className = "text-black font-bold">Price range: </Typography>
-          <div className='flex flex-col'>
-            <span className='mx-auto text-sm'><b></b>Price range: from <b>${value[0]}</b> to <b>${value[1]}</b></span>
+          <div className='flex flex-col mt-3'>
+            <span className='mx-auto text-sm '><b></b>Price range: from <b>${value[0]}</b> to <b>${value[1]}</b></span>
             <div className="text-black mx-auto">
                 <RangeSlider 
                     className ="mx-auto"
@@ -166,8 +165,6 @@ export const CategoryPage = () => {
     </div>
       )
     
-  
-
     useEffect(() => {
         sethpData(
           [
@@ -468,7 +465,7 @@ export const CategoryPage = () => {
                     ></HpCarousel>
                   </Fragment>
                   <div>
-                    <div className="font-semibold text-lg mt-8 mb-6" onClick = {handleDrawerToggle}>
+                    <div className="font-semibold text-lg mt-8 mb-6">
                       All courses about Programming Languages
                     </div>
                     <div className = "">
@@ -478,7 +475,14 @@ export const CategoryPage = () => {
                       </div>
                       
                       <div className = "flex flex-col flex-grow">
-                        <div className = "inline-block">
+                        <div className= "flex flex-row">
+                          <div className="my-auto mr-2 border bg-gray-50 rounded-none" style ={{borderColor:"rgba(0, 0, 0, 0.23)",padding:"17px", lineHeight:"16px"}} onClick = {handleDrawerToggle}>
+                            <FilterListIcon className = "w-4 h-4 my-auto mr-1"></FilterListIcon>
+                            <button className = "my-auto text-sm font-semibold">
+                              Filters
+                            </button>
+                          </div>
+                        <div className = "inline-block flex-grow">
                           <FormControl fullWidth >
                             <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
                             <Select
@@ -490,6 +494,7 @@ export const CategoryPage = () => {
                               <MenuItem value={30}>Most popular</MenuItem>
                             </Select>
                           </FormControl>
+                        </div>
                         </div>
                       {hpData.map((courseData, index) => {
                         return (

@@ -304,7 +304,7 @@ export const CourseDetail = () => {
     return (
       <div className="h-full" style = {{minHeight:"100vh"}}>
         <div className="bg-[#1C1D1F]">
-          <div className=" py-8 p-4">
+          <div className=" pt-8 p-4">
             <CustomSeparator 
               text = "Information Technology"
             />
@@ -351,6 +351,14 @@ export const CourseDetail = () => {
                 />
                 <p>English [auto], Dutch [auto]</p>
               </div>
+            </div>
+            <div className="flex flex-col mt-4">
+              <div className="text-white font-bold text-2xl mt-2 mb-2">
+                $29.99
+              </div>
+              <button className=" text-center text-2xl flex-grow p-2 text-black bg-white">
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
