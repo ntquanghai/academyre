@@ -127,7 +127,7 @@ export default function Header() {
             ))}
           </List>
       <Divider />
-      <div className = "mt-2 ml-4 font-bold text-lg text-red-500">
+      <div className = "mt-2 ml-4 font-bold text-lg text-red-500" onClick = {()=>localStorage.removeItem("isAuth")}>
         Log out
       </div>
 
@@ -198,7 +198,7 @@ export default function Header() {
                     <Link to = "profile/account">
                       <MenuItem className = "text-sm" onClick={handleClose}>Account settings</MenuItem>
                     </Link>
-                      <MenuItem className = "text-red-600 text-sm" onClick={handleClose}>Logout</MenuItem>
+                      <MenuItem className = "text-red-600 text-sm" onClick = {()=>localStorage.removeItem("isAuth")}>Logout</MenuItem>
                   </div>
                 </Menu>
               </div>
