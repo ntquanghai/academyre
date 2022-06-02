@@ -43,13 +43,13 @@ export default function SignUp() {
   const { loading, error, isAuthenticated } = state;
 
   const onChangeFullname = (e) => {
-    setFullName(fullName);
+    setFullName(e.target.value);
   };
   const onChangeEmail = (e) => {
-    setEmail(email);
+    setEmail(e.target.value);
   };
   const onChangePassword = (e) => {
-    setPassword(password);
+    setPassword(e.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,6 +60,9 @@ export default function SignUp() {
     };
     console.log(submitValues);
     signup(submitValues, dispatch);
+    setFullName('');
+    setEmail('');
+    setPassword('');
   };
 
   React.useEffect(() => {
@@ -67,6 +70,7 @@ export default function SignUp() {
       console.log(error);
     }
   }, [error]);
+
 
   if (isAuthenticated) {
     console.log("hello");

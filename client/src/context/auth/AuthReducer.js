@@ -99,10 +99,21 @@ export const login = async (formData, dispatch) => {
   }
 };
 
-export const logout = (dispatch) => {
+export const logout = async (dispatch) => {
   dispatch({
     type: LOG_OUT,
   });
+  try {
+    await AuthAPI.signout();
+    dispatch({
+      type: LOG_OUT
+    })
+  } catch (error) {
+    dispatch({
+      type: LOG_OUT,
+      payload: error.response.data,
+    });
+  }
 };
 
 export const fetchUserData = async (dispatch) => {
@@ -122,7 +133,7 @@ export const fetchUserData = async (dispatch) => {
 };
 
 export const signup = async (formData, dispatch) => {
-  const { email, password } = formData;
+  const { fullname, email, password } = formData;
   dispatch({
     type: SIGNUP_REQUEST,
   });

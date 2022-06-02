@@ -23,6 +23,17 @@ router.get("/", authMDw, async (req, res) => {
   }
 });
 
+router.get("/signout", function (req, res) {
+  req.logout();
+  if (!req.session) {
+    req.session.destroy(function (err) {
+      res.redirect("/login");
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
+
 router.post("/login", async (req, res) => {
   //Authentication
   console.log(req.body);
@@ -79,7 +90,7 @@ router.post("/register", async (req, res) => {
       email,
       password: hashPassword,
     };
-    await UserModel.insertMany(user);
+    await user.save();
     res.status(201).json({
       msg: "Create successfully",
     });

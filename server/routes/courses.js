@@ -2,7 +2,7 @@ const express = require("express");
 const CourseModel = require("../models/Course");
 const router = express.Router();
 const cloudinary = require("../config/cloudinary");
-
+const uuidv4 = require('uuidv4');
 // const mockCourse = [
 //   {
 //     id: 10,

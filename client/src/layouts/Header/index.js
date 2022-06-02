@@ -24,7 +24,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import { deepOrange, deepPurple } from '@mui/material/colors';
-
+import { logout } from "../../context/auth/AuthReducer";
 
 export default function Header() {
   const viewport = useMediaQuery();
@@ -40,7 +40,11 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+  const logOutHandler = (e) => {
+    e.preventDefault();
+    logout();
 
+  }
   const isLoggedIn = sessionStorage.getItem("isAuth");
 
   const handleDrawerToggle = () => {
